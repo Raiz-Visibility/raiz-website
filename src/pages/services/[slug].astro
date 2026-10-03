@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ServiceDesktop from '../../components/design/ServiceDesktop.astro';
+import ServiceMobile from '../../components/design/ServiceMobile.astro';
+import { categories } from '../../data/site';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const s = entry.data;
+const c = categories[s.category];
+const accentVars = `--accent:${c.accent};--accent-on-dark:${c.onDark};`;
+---
+<Base title={s.serviceName} description={s.metaDescription}>
+  <div slot="desktop" style={accentVars}><ServiceDesktop service={s} slug={entry.id} /></div>
+  <div slot="mobile" style={accentVars}><ServiceMobile service={s} slug={entry.id} /></div>
+</Base>

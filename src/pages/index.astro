@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import HomeDesktop from '../components/design/HomeDesktop.astro';
+import HomeMobile from '../components/design/HomeMobile.astro';
+---
+<Base title="Home" description="When someone asks AI for the best in your business, we make sure you're the answer. Search and AI visibility for home services businesses.">
+  <HomeDesktop slot="desktop" />
+  <HomeMobile slot="mobile" />
+</Base>
+
+<script>
+  // Evidence case slider — one per rendition (desktop / mobile).
+  document.querySelectorAll<HTMLElement>('.d-site, .m-site').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('[data-slider-track]');
+    if (!track) return;
+    const count = track.children.length;
+    let slide = 0;
+    const go = (n: number) => {
+      slide = (n + count) % count;
+      track.style.transform = `translateX(-${slide * 100}%)`;
+      Array.from(track.children).forEach((el, i) => el.toggleAttribute('inert', i !== slide));
+    };
+    const bind = (sel: string, step: number) => root.querySelectorAll<HTMLElement>(sel).forEach((btn) => {
+      btn.addEventListener('click', () => go(slide + step));
+      btn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(slide + step); } });
+    });
+    bind('[data-slider-prev]', -1);
+    bind('[data-slider-next]', 1);
+    go(0);
+  });
+</script>

@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import BlogArchiveDesktop from '../../components/design/BlogArchiveDesktop.astro';
+import BlogArchiveMobile from '../../components/design/BlogArchiveMobile.astro';
+---
+<Base title="Blog" description="Notes on how home service businesses get found — search, ads, websites and AI visibility: what's changing, and what to do about it.">
+  <BlogArchiveDesktop slot="desktop" />
+  <BlogArchiveMobile slot="mobile" />
+</Base>
+
+<script>
+  // Category filter — mirrors the design's archive logic: the featured post shows for
+  // "All" and for its own category; an empty category shows the empty-state line.
+  document.querySelectorAll<HTMLElement>('.d-site, .m-site').forEach((root) => {
+    const chips = root.querySelectorAll<HTMLButtonElement>('.chip');
+    const pick = (key: string) => {
+      chips.forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.filter === key)));
+      let shown = 0;
+      root.querySelectorAll<HTMLElement>('[data-post]').forEach((el) => {
+        const on = key === 'All' || el.dataset.cat === key;
+        el.hidden = !on;
+        if (on) shown++;
+      });
+      const featured = root.querySelector<HTMLElement>('[data-featured]');
+      if (featured) featured.hidden = !(key === 'All' || featured.dataset.cat === key);
+      const empty = root.querySelector<HTMLElement>('[data-empty]');
+      if (empty) empty.hidden = shown > 0;
+    };
+    chips.forEach((c) => c.addEventListener('click', () => pick(c.dataset.filter!)));
+  });
+</script>

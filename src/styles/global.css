@@ -1,0 +1,97 @@
+/* RAIZ Visibility — global styles.
+   Tokens are copied verbatim from the Claude Design system (src/styles/tokens/). */
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/effects.css";
+@import "./tokens/editorial.css";
+@import "./interactions.css";
+
+/* ── Base (from the design files' <helmet> block) ── */
+* { box-sizing: border-box; }
+html { overflow-x: clip; }
+body { margin: 0; background: var(--rz-foreground); font-family: var(--rz-font-body); overflow-x: clip; -webkit-font-smoothing: antialiased; }
+a { color: var(--rz-purple); text-decoration: none; }
+a:hover { color: var(--rz-gold-light); }
+:focus-visible { outline: 2px solid var(--rz-gold); outline-offset: 2px; }
+[hidden] { display: none !important; }
+input, select, textarea, button { font-family: inherit; }
+
+/* ── Two renditions, one page ──
+   The design specifies a 1440px desktop composition and a separate 390px mobile one.
+   Desktop renders at its native 1440 grid and is scaled (zoom) to fit 1024–1439px viewports;
+   below 1024px the mobile composition takes over and runs fluid. */
+.d-site { width: 1440px; margin: 0 auto; zoom: var(--dz, 1); background: var(--rz-foreground); }
+.m-site { display: none; background: var(--rz-foreground); }
+@media (max-width: 1023.98px) {
+  .d-site { display: none; }
+  .m-site { display: block; }
+}
+
+/* Section backgrounds that run edge to edge past the 1440 frame on wide screens. */
+.bleed { border-image: var(--bleed) fill 0 / / 0 100vw; }
+
+/* ── Header dropdowns (desktop) ── */
+.dd > .dd-panel { display: none; }
+.dd:hover > .dd-panel,
+.dd:focus-within > .dd-panel { display: block; }
+.dd-panel > div::after { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 18px; }
+
+/* ── Mobile menu toggle icons ── */
+.m-menu-toggle .m-icon-close { display: none; }
+.m-menu-toggle[aria-expanded="true"] .m-icon-open { display: none; }
+.m-menu-toggle[aria-expanded="true"] .m-icon-close { display: block; }
+
+/* ── Image placeholders (see ImageSlot.astro) ── */
+.img-slot {
+  width: 100%; height: 100%; min-height: 100%;
+  display: flex; align-items: center; justify-content: center; padding: 16px;
+  background: #DCDDE4; color: #6B7280;
+  font-family: system-ui, sans-serif; font-size: 13px; line-height: 1.4; text-align: center;
+}
+
+/* ── Orb button before its custom element upgrades ── */
+rz-orb-button:not(:defined) {
+  display: inline-flex; align-items: center; justify-content: center; height: 52px; padding: 0 32px;
+  border-radius: 24px; background: radial-gradient(circle, #D4A54A, #E5BD6A 80%);
+  color: #0F0F12; font-size: 15px; font-weight: 600;
+}
+rz-orb-button[full]:not(:defined) { display: flex; width: 100%; }
+
+/* ── Blog article body (Markdown) — desktop and mobile type scales from the design ── */
+.prose-d { display: flex; flex-direction: column; gap: 24px; font-size: 18px; line-height: 1.75; color: rgba(15,15,18,0.82); }
+.prose-d > * { margin: 0; text-wrap: pretty; }
+.prose-d h2 { margin: 24px 0 0; font-family: var(--rz-font-display); font-weight: 500; font-size: 32px; line-height: 1.2; letter-spacing: -0.01em; color: var(--rz-background); scroll-margin-top: 32px; }
+.prose-d h3 { margin: 16px 0 0; font-family: var(--rz-font-display); font-weight: 500; font-size: 22px; line-height: 1.25; color: var(--rz-background); }
+.prose-d blockquote { margin: 16px 0; padding: 8px 0 8px 28px; border-left: 2px solid var(--rz-gold); font-family: var(--rz-font-display); font-weight: 500; font-size: 28px; line-height: 1.35; color: var(--rz-background); }
+.prose-d blockquote p { margin: 0; }
+.prose-d ul, .prose-d ol { padding-left: 22px; display: flex; flex-direction: column; gap: 10px; }
+.prose-d figure { margin: 16px 0; display: flex; flex-direction: column; gap: 12px; }
+.prose-d figure > div, .prose-d img { aspect-ratio: 16/9; border-radius: 14px; overflow: hidden; width: 100%; object-fit: cover; }
+.prose-d figcaption { font-size: 14px; line-height: 1.5; color: rgba(15,15,18,0.55); }
+.prose-d a { color: var(--rz-purple); text-decoration: underline; text-underline-offset: 3px; }
+
+.prose-m { padding: 0 16px 56px; display: flex; flex-direction: column; gap: 18px; font-size: 16px; line-height: 1.7; color: rgba(15,15,18,0.82); }
+.prose-m > * { margin: 0; }
+.prose-m h2 { margin: 16px 0 0; font-family: var(--rz-font-display); font-weight: 500; font-size: 24px; line-height: 1.25; color: var(--rz-background); }
+.prose-m h3 { margin: 12px 0 0; font-family: var(--rz-font-display); font-weight: 500; font-size: 19px; line-height: 1.3; color: var(--rz-background); }
+.prose-m blockquote { margin: 8px 0; padding-left: 18px; border-left: 2px solid var(--rz-gold); font-family: var(--rz-font-display); font-weight: 500; font-size: 21px; line-height: 1.35; color: var(--rz-background); }
+.prose-m blockquote p { margin: 0; }
+.prose-m ul, .prose-m ol { padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+.prose-m figure { margin: 8px 0; display: flex; flex-direction: column; gap: 10px; }
+.prose-m figure > div, .prose-m img { aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; width: 100%; object-fit: cover; }
+.prose-m figcaption { font-size: 13px; line-height: 1.5; color: rgba(15,15,18,0.55); }
+.prose-m a { color: var(--rz-purple); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── Blog filter chips (state from the design's archive logic) ── */
+.chip { --chip-bg: transparent; --chip-color: var(--rz-background); --chip-border: rgba(15,15,18,0.14); }
+.chip[aria-pressed="true"] { --chip-bg: var(--rz-background); --chip-color: var(--rz-foreground); --chip-border: var(--rz-background); }
+
+/* ── Blog post table of contents (active section) ── */
+.toc-link[aria-current="true"] { color: var(--rz-background) !important; border-left-color: var(--rz-gold) !important; }
+
+/* ── Contact form interest chips (real checkboxes, styled as the design's toggles) ── */
+.ichip { --chip-bg: transparent; --chip-border: rgba(15,15,18,0.14); position: relative; }
+.ichip:has(input:checked) { --chip-bg: var(--rz-foreground); --chip-border: var(--rz-background); }
+.ichip input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.ichip:has(input:focus-visible) { outline: 2px solid var(--rz-gold); outline-offset: 2px; }

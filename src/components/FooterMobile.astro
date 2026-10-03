@@ -1,0 +1,49 @@
+---
+const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
+---
+<div style="background:var(--rz-background);padding:48px 16px 32px;display:flex;flex-direction:column;gap:32px;">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;flex-direction:column;gap:4px;width:96px;">
+          <span style="font-family:var(--rz-font-display);font-weight:700;font-size:25px;line-height:1;letter-spacing:-0.01em;background:var(--rz-gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent;">RAIZ</span>
+          <span style="font-family:var(--rz-font-display);font-weight:400;font-size:6px;letter-spacing:0.5em;color:var(--rz-foreground);padding-left:3px;">VISIBILITY</span>
+        </div>
+        <span style="font-size:13px;line-height:1.55;color:var(--rz-muted-foreground);">Search and AI visibility for home services businesses.</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate);">Services</span>
+          <a href={u("/services/local-seo/")} style="font-size:13.5px;color:var(--rz-muted-foreground);">Local SEO</a>
+          <span style="font-size:13.5px;color:var(--rz-muted-foreground);">AI Visibility</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate);">Company</span>
+          <span style="font-size:13.5px;color:var(--rz-muted-foreground);">Case Studies</span>
+          <a href={u("/about/")} style="font-size:13.5px;color:var(--rz-muted-foreground);">About</a>
+          <a href={u("/contact/")} style="font-size:13.5px;color:var(--rz-muted-foreground);">Contact</a>
+          <a href={u("/blog/")} style="font-size:13.5px;color:var(--rz-muted-foreground);">Blog</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate);">Industries</span>
+          <span style="font-size:13.5px;color:var(--rz-muted-foreground);">Plumbing</span>
+          <span style="font-size:13.5px;color:var(--rz-muted-foreground);">HVAC</span>
+          <span style="font-size:13.5px;color:var(--rz-muted-foreground);">Electrical</span>
+          <span style="font-size:13.5px;color:var(--rz-muted-foreground);">Septic</span>
+          <span style="font-size:13.5px;color:var(--rz-muted-foreground);">Painting</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate);">Locations</span>
+          <span style="font-size:13.5px;color:var(--rz-muted-foreground);">All Locations</span>
+          <span style="font-size:13.5px;color:var(--rz-muted-foreground);">[City, ST]</span>
+          <span style="font-size:13.5px;color:var(--rz-muted-foreground);">[City, ST]</span>
+          <span style="font-size:12px;color:var(--rz-slate-dark);">City list to be confirmed</span>
+        </div>
+      </div>
+      <div style="padding-top:20px;border-top:1px solid rgba(15,15,18,0.10);display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;gap:20px;">
+          <span style="font-size:13px;color:var(--rz-muted-foreground);">© 2026</span>
+          <span style="font-size:13px;color:var(--rz-muted-foreground);">Privacy Policy</span>
+          <span style="font-size:13px;color:var(--rz-muted-foreground);">Terms</span>
+        </div>
+        <span style="font-size:13px;color:var(--rz-muted-foreground);">Amplify Your Visibility.</span>
+      </div>
+    </div>

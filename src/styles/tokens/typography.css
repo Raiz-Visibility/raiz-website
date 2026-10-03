@@ -1,0 +1,41 @@
+:root {
+  --rz-font-display: "Manrope", Arial, Helvetica, sans-serif;
+  --rz-font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+  --rz-weight-light: 300;
+  --rz-weight-regular: 400;
+  --rz-weight-medium: 500;
+  --rz-weight-semibold: 600;
+  --rz-weight-bold: 700;
+
+  /* Display scale — Manrope */
+  --rz-text-h1-size: 48px;
+  --rz-text-h1-line: 56px;
+  --rz-text-h1-weight: 700;
+  --rz-text-h1-tracking: -0.02em;
+
+  --rz-text-h2-size: 32px;
+  --rz-text-h2-line: 40px;
+  --rz-text-h2-weight: 500;
+
+  --rz-text-h3-size: 22px;
+  --rz-text-h3-line: 30px;
+  --rz-text-h3-weight: 500;
+
+  /* Body scale — Inter */
+  --rz-text-body-size: 16px;
+  --rz-text-body-line: 26px;
+  --rz-text-body-weight: 400;
+
+  --rz-text-small-size: 13px;
+  --rz-text-small-line: 20px;
+
+  --rz-text-caption-size: 11px;
+  --rz-text-caption-line: 16px;
+  --rz-text-caption-weight: 500;
+  --rz-text-caption-tracking: 0.18em;
+
+  /* Lockup */
+  --rz-logo-wordmark-tracking: -0.01em;
+  --rz-logo-sub-tracking: 0.5em;
+}

@@ -1,0 +1,31 @@
+---
+// Replaces the design's <image-slot> placeholder.
+// Drop a file named after the slot id into public/images/ (e.g. public/images/raiz-founder-1.jpg)
+// and it renders automatically; until then a neutral placeholder with the design's caption shows.
+import fs from 'node:fs';
+import path from 'node:path';
+
+interface Props {
+  id: string;
+  shape?: 'rect' | 'rounded' | 'circle' | 'pill';
+  radius?: number;
+  placeholder?: string;
+  alt?: string;
+  src?: string;
+}
+const { id, shape = 'rounded', radius = 12, placeholder = '', alt, src } = Astro.props;
+
+const exts = ['avif', 'webp', 'jpg', 'jpeg', 'png', 'svg'];
+const found = src ?? exts.map((e) => `images/${id}.${e}`).find((f) => fs.existsSync(path.join(process.cwd(), 'public', f)));
+const url = found && !found.startsWith('http') && !found.startsWith('/') ? import.meta.env.BASE_URL.replace(/\/$/, '') + '/' + found : found;
+
+const r = shape === 'circle' ? '50%' : shape === 'pill' ? '999px' : shape === 'rect' ? '0' : `${radius}px`;
+const label = alt ?? placeholder.replace(/\s+—.*$/, '');
+---
+{url ? (
+  <img src={url} alt={label} loading="lazy" decoding="async" style={`display:block;width:100%;height:100%;object-fit:cover;border-radius:${r};`} />
+) : (
+  <div class="img-slot" role="img" aria-label={label} style={`border-radius:${r};`}>
+    {placeholder && shape !== 'circle' && <span>{placeholder}</span>}
+  </div>
+)}

@@ -1,0 +1,24 @@
+:root {
+  --rz-space-xs: 4px;
+  --rz-space-sm: 8px;
+  --rz-space-md: 16px;
+  --rz-space-lg: 24px;
+  --rz-space-xl: 32px;
+  --rz-space-2xl: 48px;
+  --rz-space-3xl: 64px;
+
+  --rz-radius-sm: 8px;    /* inputs, chips */
+  --rz-radius-md: 10px;   /* buttons, icon containers */
+  --rz-radius-lg: 12px;   /* cards, panels */
+  --rz-radius-full: 999px;/* badges, avatars */
+
+  --rz-container-max: 1400px;
+  --rz-grid-columns: 12;
+  --rz-gutter-mobile: 16px;
+  --rz-gutter-desktop: 24px;
+
+  --rz-control-height: 44px;
+  --rz-badge-height: 28px;
+  --rz-card-padding: 28px;
+  --rz-card-gap: 16px;
+}

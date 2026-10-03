@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactDesktop from '../components/design/ContactDesktop.astro';
+import ContactMobile from '../components/design/ContactMobile.astro';
+---
+<Base title="Contact" description="Book a thirty-minute call. We scan your map coverage, check what AI says about you, and tell you the first three things we'd fix.">
+  <ContactDesktop slot="desktop" />
+  <ContactMobile slot="mobile" />
+</Base>
+
+<script>
+  // Submits to PUBLIC_FORM_ENDPOINT (a Formspree-style JSON endpoint) when one is configured;
+  // otherwise falls back to opening the visitor's email app addressed to the team.
+  const FALLBACK_EMAIL = 'hello@raizvisibility.com';
+
+  document.querySelectorAll<HTMLFormElement>('form.contact-form').forEach((form) => {
+    const root = form.closest('.d-site, .m-site')!;
+    const formPanel = root.querySelector<HTMLElement>('[data-form-panel]');
+    const sentPanel = root.querySelector<HTMLElement>('[data-sent-panel]');
+    const submitLabel = form.querySelector<HTMLElement>('[data-submit-label]');
+
+    const showSent = () => {
+      if (formPanel && sentPanel) { formPanel.hidden = true; sentPanel.hidden = false; }
+      if (submitLabel) submitLabel.textContent = 'Sent — we’ll be in touch';
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+      const endpoint = form.getAttribute('action');
+
+      if (!endpoint) {
+        const lines = [...data.entries()].map(([k, v]) => `${k}: ${v}`).join('\n');
+        window.location.href = `mailto:${FALLBACK_EMAIL}?subject=${encodeURIComponent('Book a call — ' + (data.get('business') || data.get('name')))}&body=${encodeURIComponent(lines)}`;
+        showSent();
+        return;
+      }
+
+      button.disabled = true;
+      try {
+        const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error(String(res.status));
+        form.reset();
+        showSent();
+      } catch {
+        alert(`Sorry — that didn't send. Please email us at ${FALLBACK_EMAIL}.`);
+      } finally {
+        button.disabled = false;
+      }
+    });
+
+    root.querySelector('[data-reset]')?.addEventListener('click', () => {
+      if (formPanel && sentPanel) { formPanel.hidden = false; sentPanel.hidden = true; }
+    });
+  });
+</script>

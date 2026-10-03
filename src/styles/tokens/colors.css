@@ -1,0 +1,59 @@
+:root {
+  /* ── Brand accents ── */
+  --rz-gold: #D4A54A;
+  --rz-gold-light: #E5BD6A;
+  --rz-gold-dark: #B8892F;
+  --rz-purple: #9B5BA5;
+  --rz-purple-light: #B87EC4;
+  --rz-slate: #7889B7;
+  --rz-slate-dark: #5C6A99;
+
+  /* ── Neutrals ── */
+  --rz-black: #000000;
+  --rz-background: #0F0F12;
+  --rz-card: #141418;
+  --rz-muted: #1F2028;
+  --rz-border: #262630;
+  --rz-foreground: #FAFAFA;
+  --rz-muted-foreground: #9CA3AF;
+
+  /* ── Status (guide uses these only for guidance chips) ── */
+  --rz-fail: #7A2E2E;
+
+  /* ── Semantic aliases ── */
+  --rz-surface-page: var(--rz-background);
+  --rz-surface-card: var(--rz-card);
+  --rz-surface-subtle: var(--rz-muted);
+  --rz-surface-inverse: var(--rz-foreground);
+  --rz-border-default: var(--rz-border);
+  --rz-border-strong: var(--rz-slate-dark);
+
+  --rz-text-primary: var(--rz-foreground);
+  --rz-text-secondary: var(--rz-muted-foreground);
+  --rz-text-accent: var(--rz-gold);
+  --rz-text-link: var(--rz-purple-light);
+  --rz-text-link-hover: var(--rz-gold-light);
+  /* Text on gold / gradient fills is ALWAYS the page background — never white. */
+  --rz-text-on-accent: var(--rz-background);
+
+  --rz-accent-primary: var(--rz-gold);
+  --rz-accent-primary-hover: var(--rz-gold-light);
+  --rz-accent-secondary: var(--rz-purple);
+  --rz-accent-secondary-hover: var(--rz-purple-light);
+  --rz-accent-tertiary: var(--rz-slate);
+
+  /* ── Gradients ── */
+  --rz-gradient-brand: linear-gradient(135deg, #D4A54A, #9B5BA5, #7889B7);
+  --rz-gradient-brand-on-light: linear-gradient(135deg, #B8892F, #9B5BA5, #5C6A99);
+  --rz-gradient-gold-purple: linear-gradient(90deg, #D4A54A, #9B5BA5);
+  --rz-gradient-purple-slate: linear-gradient(90deg, #9B5BA5, #7889B7);
+  --rz-gradient-surface: linear-gradient(180deg, #141418, #0F0F12);
+
+  /* ── Accent washes (badges, chips, icon tints) ── */
+  --rz-gold-wash: rgba(212, 165, 74, 0.14);
+  --rz-gold-wash-border: rgba(212, 165, 74, 0.40);
+  --rz-purple-wash: rgba(155, 91, 165, 0.16);
+  --rz-purple-wash-border: rgba(155, 91, 165, 0.45);
+  --rz-slate-wash: rgba(120, 137, 183, 0.16);
+  --rz-slate-wash-border: rgba(120, 137, 183, 0.45);
+}

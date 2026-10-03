@@ -1,0 +1,79 @@
+/* RAIZ Editorial — the light, image-and-glass language of the 2026 home page.
+   Companion to the dark-first core tokens; same brand accents, inverted ground. */
+:root {
+  /* ── Surfaces ── */
+  --rz-ed-page: #FAFAFA;            /* page ground */
+  --rz-ed-desk: #E4E4E8;            /* canvas behind the page / photo placeholders */
+  --rz-ed-mist: #E3E4ED;            /* cool mid-stop of the section wash */
+  --rz-ed-wash: linear-gradient(180deg, #FAFAFA 0%, #E3E4ED 48%, #FAFAFA 82%, #FAFAFA 100%);
+  --rz-ed-panel-dark: var(--rz-background); /* report cards, stat callouts */
+
+  /* ── Ink (always #0F0F12 at an alpha — never grey hexes) ── */
+  --rz-ed-ink: #0F0F12;
+  --rz-ed-ink-body: rgba(15, 15, 18, 0.78);   /* long-form paragraphs */
+  --rz-ed-ink-lead: rgba(15, 15, 18, 0.70);   /* lead / intro paragraphs */
+  --rz-ed-ink-muted: rgba(15, 15, 18, 0.42);  /* captions on light */
+  --rz-ed-ink-faint: rgba(15, 15, 18, 0.38);  /* idle controls */
+  --rz-ed-rule: rgba(15, 15, 18, 0.10);       /* hairline dividers */
+  --rz-ed-rule-strong: rgba(15, 15, 18, 0.12);
+  --rz-ed-hover-fill: rgba(15, 15, 18, 0.06);
+  --rz-ed-overline: var(--rz-slate-dark);     /* all overlines on light */
+
+  /* ── Display scale (Manrope) ── */
+  --rz-ed-hero-size: 72px;   --rz-ed-hero-line: 1.05; --rz-ed-hero-weight: 700;
+  --rz-ed-title-size: 56px;  --rz-ed-title-line: 1.05; --rz-ed-title-weight: 600; /* service section titles */
+  --rz-ed-h2-size: 44px;     --rz-ed-h2-line: 1.14;    --rz-ed-h2-weight: 500;
+  --rz-ed-h2s-size: 32px;    --rz-ed-h2s-line: 1.25;   /* narrative H2 */
+  --rz-ed-pull-size: 26px;   --rz-ed-pull-line: 1.3;   /* pull line / names */
+  --rz-ed-h3-size: 22px;     --rz-ed-h3-line: 1.25;
+  --rz-ed-tracking-tight: -0.02em;
+
+  /* ── Body scale (Inter) ── */
+  --rz-ed-lead-xl: 19px;     /* hero sub */
+  --rz-ed-lead: 18px;        /* section intro */
+  --rz-ed-lead-sm: 17px;     /* centered intros, line-height 1.7 */
+  --rz-ed-body: 16px;        /* line-height 1.625 */
+  --rz-ed-overline-size: 11px;
+  --rz-ed-overline-tracking: 0.18em;
+  --rz-ed-eyebrow-size: 13px;       /* "SECTION 01" */
+  --rz-ed-eyebrow-tracking: 0.22em;
+
+  /* ── Layout ── */
+  --rz-ed-frame: 1440px;
+  --rz-ed-content: 1320px;
+  --rz-ed-margin: 72px;
+  --rz-ed-section-y: 120px;
+  --rz-ed-hero-y: 140px;
+  --rz-ed-block-gap: 88px;   /* intro → content inside a section */
+
+  /* ── Elevation (light ground only) ── */
+  --rz-ed-shadow-menu: 0 18px 40px rgba(15, 15, 18, 0.10);
+  --rz-ed-shadow-rest: 0 10px 24px rgba(15, 15, 18, 0.12);
+  --rz-ed-shadow-lift: 0 10px 26px rgba(15, 15, 18, 0.20);
+  --rz-ed-shadow-hero: 0 30px 60px rgba(15, 15, 18, 0.26), 0 8px 18px rgba(15, 15, 18, 0.16);
+
+  /* ── Glass tiles — the signature ── */
+  /* √φ size ladder: 238 → 188 → 147 → 91 → 56 (≈ ÷1.27 per step, skipping to ÷φ at the tail) */
+  --rz-tile-xl: 238px; --rz-tile-xl-radius: 28px; --rz-tile-xl-border: 5px;
+  --rz-tile-lg: 188px; --rz-tile-lg-radius: 24px; --rz-tile-lg-border: 5px;
+  --rz-tile-md: 147px; --rz-tile-md-radius: 20px; --rz-tile-md-border: 5px;
+  --rz-tile-sm: 91px;  --rz-tile-sm-radius: 17px; --rz-tile-sm-border: 3px;
+  --rz-tile-xs: 56px;  --rz-tile-xs-radius: 15px; --rz-tile-xs-border: 2px;
+  --rz-tile-gap: 35px;
+
+  --rz-glass-sheen: linear-gradient(113deg, rgba(255,255,255,0.22) -7.1%, rgba(255,255,255,0.34) 14.3%, rgba(255,255,255,0.75) 31.4%, rgba(255,255,255,0.95) 37.5%, rgba(255,255,255,0.66) 43.6%, rgba(255,255,255,0.45) 60.8%, rgba(255,255,255,0.34) 82.1%);
+  --rz-glass-blur: blur(18px) saturate(1.5);
+  --rz-glass-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 14px 24px 44px -18px rgba(70,45,95,0.42), 4px 8px 14px -8px rgba(70,45,95,0.28);
+  --rz-glass-shadow-hover: inset 0 1px 0 rgba(255,255,255,0.9), 20px 34px 58px -20px rgba(70,45,95,0.5), 6px 12px 20px -10px rgba(70,45,95,0.32);
+  --rz-glass-shadow-quiet: inset 0 1px 0 rgba(255,255,255,0.5), 9px 16px 30px -16px rgba(55,42,80,0.36), 3px 6px 11px -7px rgba(55,42,80,0.24);
+
+  /* Family fills (translucent body) + rims (solid border gradient) */
+  --rz-glass-gold-fill: linear-gradient(135deg, rgba(229,189,106,0.62) 0%, rgba(212,165,74,0.5) 22%, rgba(205,168,150,0.3) 42%, rgba(178,150,190,0.28) 58%, rgba(155,91,165,0.45) 80%, rgba(120,137,183,0.62) 100%);
+  --rz-glass-gold-rim: linear-gradient(315deg, #E5BD6A 0%, #D4A54A 24%, #C68F86 46%, #B87EC4 62%, #9B5BA5 80%, #7889B7 100%);
+  --rz-glass-purple-fill: linear-gradient(135deg, rgba(184,126,196,0.62) 0%, rgba(171,105,184,0.5) 20%, rgba(158,98,178,0.3) 38%, rgba(140,112,186,0.28) 56%, rgba(128,131,185,0.45) 76%, rgba(110,128,180,0.62) 100%);
+  --rz-glass-purple-rim: linear-gradient(315deg, #C58FD4 0%, #B87EC4 22%, #A96BB5 40%, #9070B0 60%, #7C86B8 80%, #6F80B4 100%);
+  --rz-glass-slate-fill: linear-gradient(135deg, rgba(147,163,205,0.62) 0%, rgba(120,137,183,0.5) 20%, rgba(116,128,180,0.3) 38%, rgba(134,112,184,0.28) 56%, rgba(150,95,172,0.45) 78%, rgba(160,88,168,0.6) 100%);
+  --rz-glass-slate-rim: linear-gradient(315deg, #93A3CD 0%, #7889B7 22%, #7480B4 40%, #8C6FAF 60%, #9B5BA5 82%, #A4569E 100%);
+  --rz-glass-amber-fill: linear-gradient(135deg, rgba(200,150,70,0.62) 0%, rgba(184,137,47,0.5) 20%, rgba(174,126,66,0.3) 38%, rgba(168,110,130,0.28) 56%, rgba(158,94,166,0.45) 76%, rgba(126,136,182,0.6) 100%);
+  --rz-glass-amber-rim: linear-gradient(315deg, #D0A455 0%, #B8892F 22%, #B08046 40%, #A96F8A 58%, #9B5BA5 78%, #7889B7 100%);
+}

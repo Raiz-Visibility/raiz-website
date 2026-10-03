@@ -1,0 +1,93 @@
+---
+import ImageSlot from '../ImageSlot.astro';
+import type { MarkdownHeading } from 'astro';
+import { authors, categories } from '../../data/site';
+import type { Post } from '../../data/blog';
+import { card, formatDate } from '../../data/blog';
+interface Props { post: Post; headings?: MarkdownHeading[]; related: Post[] }
+const { post, headings = [], related: relatedPosts } = Astro.props;
+const d = post.data;
+const accent = categories[d.category].accent;
+const author = authors[d.author] ?? { role: 'Co-Founder', bio: '', slot: '' };
+const related = relatedPosts.map(card);
+const toc = headings.filter((h) => h.depth === 2);
+const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
+---
+<section data-screen-label="Post header" style="padding:96px 72px 56px;">
+      <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;">
+        <div style="grid-column:2 / span 10;display:flex;flex-direction:column;gap:28px;">
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(15,15,18,0.55);">
+            <a href={u("/blog/")} style="color:rgba(15,15,18,0.55);">Blog</a><span>/</span>
+            <span style="display:inline-flex;align-items:center;gap:8px;color:var(--rz-background);"><span style={`width:10px;height:10px;border-radius:3px;background:${accent};`}></span>{d.category}</span>
+          </div>
+          <h1 style="margin:0;font-family:var(--rz-font-display);font-weight:700;font-size:64px;line-height:1.06;letter-spacing:-0.02em;color:var(--rz-background);max-width:960px;text-wrap:pretty;">{d.title}</h1>
+          <p style="margin:0;font-size:20px;line-height:1.55;color:rgba(15,15,18,0.70);max-width:720px;text-wrap:pretty;">{d.excerpt}</p>
+          <div style="display:flex;align-items:center;gap:14px;padding-top:8px;">
+            <div style="width:44px;height:44px;border-radius:999px;overflow:hidden;"><ImageSlot id={author.slot} shape="circle" alt={d.author} /></div>
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <span style="font-size:14px;font-weight:500;color:var(--rz-background);">{d.author}</span>
+              <span style="font-size:13px;color:rgba(15,15,18,0.55);">{formatDate(d.date)} · {d.readTime}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Hero image" style="padding:0 72px 80px;">
+      <div style="max-width:1320px;margin:0 auto;aspect-ratio:21/9;border-radius:16px;overflow:hidden;">
+        <ImageSlot id={`blog-${post.id}`} shape="rounded" radius={16} placeholder="Post hero image — 21:9" />
+      </div>
+    </section>
+
+    <section data-screen-label="Article" style="padding:0 72px 120px;">
+      <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start;">
+        <aside class="toc" style="grid-column:1 / span 3;position:sticky;top:32px;display:flex;flex-direction:column;gap:14px;">
+          <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">In this post</span>
+          {toc.map((t, i) => (
+            <a href={`#${t.slug}`} class="toc-link" aria-current={i === 0 ? 'true' : 'false'} style="font-size:14px;line-height:1.45;color:rgba(15,15,18,0.6);padding-left:14px;border-left:2px solid rgba(15,15,18,0.10);">{t.text}</a>
+          ))}
+        </aside>
+
+        <article style="grid-column:5 / span 7;">
+          <div class="prose-d"><slot /></div>
+
+          <div style="margin-top:32px;padding-top:32px;border-top:1px solid rgba(15,15,18,0.10);display:flex;gap:20px;align-items:flex-start;">
+            <div style="flex:0 0 72px;height:72px;border-radius:14px;overflow:hidden;"><ImageSlot id={author.slot} shape="rounded" radius={14} alt={d.author} /></div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">Written by</span>
+              <span style="font-family:var(--rz-font-display);font-weight:600;font-size:20px;color:var(--rz-background);">{d.author}</span>
+              <p style="margin:0;font-size:15px;line-height:1.6;color:rgba(15,15,18,0.68);">{author.role}. {author.bio}</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="bleed" data-screen-label="Related posts" style="--bleed:linear-gradient(#F2F2F5,#F2F2F5);padding:96px 72px 120px;background:#F2F2F5;">
+      <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:48px;">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;">
+          <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:32px;color:var(--rz-background);">Keep reading</h2>
+          <a href={u("/blog/")} style="font-size:15px;font-weight:500;color:var(--rz-purple);">All posts →</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;">
+          {related.map((p) => (
+<a href={u(p.href)} style="display:flex;flex-direction:column;gap:14px;color:inherit;">
+              <div style="aspect-ratio:3/2;border-radius:14px;overflow:hidden;background:var(--rz-foreground);"><ImageSlot id={p.slot} shape="rounded" radius={14} placeholder="Post image" /></div>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style={`width:10px;height:10px;border-radius:3px;background:${p.accent};`}></span>
+                <span style="font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">{p.cat}</span>
+              </div>
+              <h3 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:21px;line-height:1.28;color:var(--rz-background);text-wrap:pretty;">{p.title}</h3>
+              <span style="font-size:13px;color:rgba(15,15,18,0.55);">{p.date} · {p.read}</span>
+            </a>
+))}
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Closing CTA" style="padding:120px 72px;">
+      <div style="max-width:1100px;margin:0 auto;background:var(--rz-gradient-surface);border:1px solid var(--rz-border);border-radius:12px;padding:80px;display:flex;flex-direction:column;align-items:center;gap:32px;">
+        <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:32px;line-height:1.25;color:var(--rz-foreground);text-align:center;max-width:640px;text-wrap:pretty;">Want to know what AI says about you today? We'll check on the first call.</h2>
+        <rz-orb-button href={u("/contact/")} height="52" padding="32">Book a Call</rz-orb-button>
+      </div>
+    </section>

@@ -1,0 +1,415 @@
+---
+import ImageSlot from '../ImageSlot.astro';
+const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
+---
+<!-- 1 · HERO -->
+    <section data-screen-label="Hero" style="background:var(--rz-foreground);padding:140px 72px;">
+      <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;">
+        <div style="grid-column:1 / span 9;display:flex;flex-direction:column;gap:34px;">
+          <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">Search &amp; AI Visibility · Home Services</span>
+          <h1 style="margin:0;font-family:var(--rz-font-display);font-weight:700;font-size:72px;line-height:1.05;letter-spacing:-0.02em;color:var(--rz-background);max-width:1000px;text-wrap:pretty;">When someone asks AI for the best in your business, we make sure <span style="background:var(--rz-gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent;">you're the answer.</span></h1>
+          <p style="margin:0;font-size:19px;line-height:1.6;color:rgba(15,15,18,0.70);max-width:560px;">One clear story about your business, everywhere the machines look.</p>
+          <div>
+            <rz-orb-button href={u("/contact/")} height="52" padding="32">Book a Call</rz-orb-button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="bleed" style="--bleed:linear-gradient(180deg,#FAFAFA 0%,#E3E4ED 48%,#FAFAFA 82%,#FAFAFA 100%);background:linear-gradient(180deg,#FAFAFA 0%,#E3E4ED 48%,#FAFAFA 82%,#FAFAFA 100%);">
+    <!-- 2 · WHAT'S CHANGED -->
+    <section data-screen-label="What's changed" style="padding:0 72px 128px;">
+      <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center;">
+        <div style="grid-column:1 / span 6;display:flex;flex-direction:column;gap:24px;">
+          <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">What's changed</span>
+          <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:32px;line-height:1.25;color:var(--rz-background);max-width:520px;text-wrap:pretty;">Before an AI system can recommend you, it has to do three things.</h2>
+          <p style="margin:0;font-size:16px;line-height:1.625;color:rgba(15,15,18,0.78);max-width:520px;text-wrap:pretty;">First it works out who you are — one specific company, not one of four in the county with a similar name. Then it has to find you somewhere other than your own website. Then it checks that what you say about yourself holds up in places you don't control.</p>
+          <p style="margin:0;font-size:16px;line-height:1.625;color:rgba(15,15,18,0.78);max-width:520px;text-wrap:pretty;">Miss one of those and you don't come back wrong. You just don't come back. The answer names someone else, and nothing tells you why.</p>
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:22px;max-width:520px;">
+            <div style="height:2px;width:120px;background:var(--rz-gradient-purple-slate);"></div>
+            <p style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:26px;line-height:1.3;color:var(--rz-background);text-wrap:pretty;">Not because you're not good — because the system couldn't confirm it.</p>
+          </div>
+        </div>
+
+        <div style="grid-column:7 / span 6;">
+          <div style="position:relative;width:100%;aspect-ratio:16/10;background:var(--rz-card);border:1px solid var(--rz-border);border-radius:12px;padding:36px;display:flex;flex-direction:column;justify-content:space-between;">
+            <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-muted-foreground);">Video</span>
+            <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;">
+              <p style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:26px;line-height:1.3;color:var(--rz-foreground);max-width:340px;text-wrap:pretty;">How the machines decide who gets named.</p>
+              <span style="flex:0 0 auto;width:52px;height:52px;border-radius:999px;border:2px solid var(--rz-foreground);display:flex;align-items:center;justify-content:center;color:var(--rz-foreground);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+              </span>
+            </div>
+            <span style="position:absolute;top:32px;right:32px;font-size:11px;color:var(--rz-muted-foreground);">Poster frame — video to come</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · EVIDENCE -->
+    <section data-screen-label="Evidence" style="padding:120px 72px;">
+      <div style="max-width:1320px;margin:0 auto;">
+
+        <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center;">
+          <div style="grid-column:1 / span 5;">
+            <div style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);margin-bottom:18px;">The evidence · Local SEO</div>
+            <h2 style="margin:0 0 18px;font-family:var(--rz-font-display);font-weight:500;font-size:44px;line-height:1.12;letter-spacing:-0.02em;color:var(--rz-background);max-width:460px;text-wrap:pretty;">Different trades, different markets, the same shift.</h2>
+            <p style="margin:0 0 30px;font-size:17px;line-height:1.7;color:rgba(15,15,18,0.70);max-width:440px;text-wrap:pretty;">Every dot is a real search run from a real spot on the map. Red means the search happened and the business didn't come up — they were there, they just weren't the answer.</p>
+            <rz-orb-button href={u("/contact/")} height="52" padding="30">See your own coverage</rz-orb-button>
+          </div>
+
+          <div style="grid-column:7 / span 6;">
+        <div style="display:flex;align-items:center;justify-content:flex-end;gap:22px;margin-bottom:10px;">
+          <span role="button" tabindex="0" aria-label="Previous case" data-slider-prev style="color:rgba(15,15,18,0.38);cursor:pointer;font-size:34px;font-weight:300;line-height:1;padding:0 6px;user-select:none;" class="hv-1">&lsaquo;</span>
+          <span role="button" tabindex="0" aria-label="Next case" data-slider-next style="color:rgba(15,15,18,0.38);cursor:pointer;font-size:34px;font-weight:300;line-height:1;padding:0 6px;user-select:none;" class="hv-1">&rsaquo;</span>
+        </div>
+            <div style="overflow:hidden;">
+              <div style="display:flex;transition:transform 480ms cubic-bezier(0.22,0.61,0.36,1);" data-slider-track>
+          <div style="flex:0 0 100%;padding:14px 72px 96px 72px;">
+            <div style="position:relative;height:460px;">
+              <figure style="position:absolute;left:0;top:0;width:38%;margin:0;transform:rotate(-3deg);z-index:1;opacity:0.62;">
+                <div style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;overflow:hidden;"><ImageSlot id="evidence-1-before" shape="rect" alt="Coverage scan before the work: most points outside the top ten" placeholder="Before scan — drop screenshot" /></div>
+                <figcaption style="font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(15,15,18,0.42);margin-top:10px;">Before</figcaption>
+              </figure>
+              <div style="position:absolute;left:0;bottom:0;width:58%;z-index:2;background:var(--rz-background);border-radius:12px;box-shadow:0 10px 26px rgba(15,15,18,0.20);">
+                <div style="width:62%;padding:18px 0 20px 20px;">
+                  <div style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--rz-slate);margin-bottom:9px;">Septic service</div>
+                  <div style="font-family:var(--rz-font-display);font-size:29px;font-weight:500;line-height:1.1;color:var(--rz-gold);">74%</div>
+                  <div style="font-size:12px;line-height:1.45;color:var(--rz-foreground);margin-top:7px;">of the area now ranks top three</div>
+                  <div style="font-size:10px;letter-spacing:0.10em;text-transform:uppercase;color:var(--rz-muted-foreground);margin-top:5px;">in 8 days</div>
+                </div>
+              </div>
+              <figure style="position:absolute;left:40%;right:0;top:52px;margin:0;transform:rotate(2deg);z-index:3;">
+                <figcaption style="font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--rz-background);margin-bottom:10px;">After</figcaption>
+                <div style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;box-shadow:0 30px 60px rgba(15,15,18,0.26),0 8px 18px rgba(15,15,18,0.16);overflow:hidden;"><ImageSlot id="evidence-1-after" shape="rect" alt="Coverage scan after the work: most points in the local top three" placeholder="After scan — drop screenshot" /></div>
+              </figure>
+            </div>
+          </div>
+          <div style="flex:0 0 100%;padding:14px 72px 96px 72px;">
+            <div style="position:relative;height:460px;">
+              <figure style="position:absolute;left:0;top:0;width:38%;margin:0;transform:rotate(-3deg);z-index:1;opacity:0.62;">
+                <div style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;overflow:hidden;"><ImageSlot id="evidence-2-before" shape="rect" alt="Coverage scan before the work: almost every point outside the top twenty" placeholder="Before scan — drop screenshot" /></div>
+                <figcaption style="font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(15,15,18,0.42);margin-top:10px;">Before</figcaption>
+              </figure>
+              <div style="position:absolute;left:0;bottom:0;width:58%;z-index:2;background:var(--rz-background);border-radius:12px;box-shadow:0 10px 26px rgba(15,15,18,0.20);">
+                <div style="width:62%;padding:18px 0 20px 20px;">
+                  <div style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--rz-slate);margin-bottom:9px;">Commercial painting</div>
+                  <div style="font-family:var(--rz-font-display);font-size:29px;font-weight:500;line-height:1.1;color:var(--rz-gold);">61%</div>
+                  <div style="font-size:12px;line-height:1.45;color:var(--rz-foreground);margin-top:7px;">of the area now ranks top three</div>
+                  <div style="font-size:10px;letter-spacing:0.10em;text-transform:uppercase;color:var(--rz-muted-foreground);margin-top:5px;">in 7 days</div>
+                </div>
+              </div>
+              <figure style="position:absolute;left:40%;right:0;top:52px;margin:0;transform:rotate(2deg);z-index:3;">
+                <figcaption style="font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--rz-background);margin-bottom:10px;">After</figcaption>
+                <div style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;box-shadow:0 30px 60px rgba(15,15,18,0.26),0 8px 18px rgba(15,15,18,0.16);overflow:hidden;"><ImageSlot id="evidence-2-after" shape="rect" alt="Coverage scan after the work: top three across the central service area" placeholder="After scan — drop screenshot" /></div>
+              </figure>
+            </div>
+          </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:160px;"></div>
+
+        <!-- Block 3 — AI visibility: centered copy above a staggered fan of three report cards.
+             ALL FIGURES AND TRADE LABELS BELOW ARE PLACEHOLDER DATA — do not invent substitutes. -->
+        <div style="max-width:720px;margin:0 auto 64px;text-align:center;">
+          <div style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);margin-bottom:20px;">AI visibility</div>
+          <h2 style="margin:0 0 20px;font-family:var(--rz-font-display);font-weight:500;font-size:44px;line-height:1.14;letter-spacing:-0.02em;color:var(--rz-background);text-wrap:pretty;">When someone asks an AI which company to call, we make sure yours is the one it names.</h2>
+          <p style="margin:0 auto;font-size:17px;line-height:1.7;color:rgba(15,15,18,0.70);max-width:560px;text-wrap:pretty;">Not one platform — all of them. Each card is a business we work with, and how often they're cited across the prompts their customers actually use.</p>
+        </div>
+
+      <div style="display:flex;align-items:center;justify-content:center;gap:22px;">
+        <article style="position:relative;z-index:1;width:280px;transform:translateY(24px) scale(0.9) rotate(-2deg);opacity:0.84;background:var(--rz-background);border-radius:12px;padding:26px 24px;box-shadow:0 10px 24px rgba(15,15,18,0.12);">
+          <div style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--rz-slate);margin-bottom:18px;">Commercial painting</div>
+          <div style="font-family:var(--rz-font-display);font-size:36px;font-weight:500;line-height:1;color:var(--rz-gold);">54%</div>
+          <div style="font-size:11px;line-height:1.5;color:var(--rz-foreground);margin-top:9px;">of tracked prompts cite this business</div>
+          <div style="height:1px;background:var(--rz-border);margin:20px 0 18px;"></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">ChatGPT</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:70%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">70</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">Gemini</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:65%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">65</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">Claude</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:55%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">55</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">Perplexity</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:45%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">45</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">AI Mode</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:30%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">30</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">AI Overview</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:22%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">22</span>
+          </div>
+        </article>
+        <article style="position:relative;z-index:3;width:280px;background:var(--rz-background);border-radius:12px;padding:26px 24px;box-shadow:0 30px 60px rgba(15,15,18,0.26),0 8px 18px rgba(15,15,18,0.16);">
+          <div style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--rz-slate);margin-bottom:18px;">Septic service</div>
+          <div style="font-family:var(--rz-font-display);font-size:42px;font-weight:500;line-height:1;color:var(--rz-gold);">62%</div>
+          <div style="font-size:11px;line-height:1.5;color:var(--rz-foreground);margin-top:9px;">of tracked prompts cite this business</div>
+          <div style="height:1px;background:var(--rz-border);margin:20px 0 18px;"></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">ChatGPT</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:80%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">80</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">Gemini</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:80%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">80</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">Claude</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:50%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">50</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">Perplexity</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:40%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">40</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">AI Mode</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:35%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">35</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">AI Overview</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:28%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">28</span>
+          </div>
+        </article>
+        <article style="position:relative;z-index:2;width:280px;transform:translateY(24px) scale(0.9) rotate(2deg);opacity:0.84;background:var(--rz-background);border-radius:12px;padding:26px 24px;box-shadow:0 10px 24px rgba(15,15,18,0.12);">
+          <div style="font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--rz-slate);margin-bottom:18px;">Auto body repair</div>
+          <div style="font-family:var(--rz-font-display);font-size:36px;font-weight:500;line-height:1;color:var(--rz-gold);">48%</div>
+          <div style="font-size:11px;line-height:1.5;color:var(--rz-foreground);margin-top:9px;">of tracked prompts cite this business</div>
+          <div style="height:1px;background:var(--rz-border);margin:20px 0 18px;"></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">ChatGPT</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:65%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">65</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">Gemini</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:60%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">60</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">Claude</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:45%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">45</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">Perplexity</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:35%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">35</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">AI Mode</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:25%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">25</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="flex:0 0 72px;font-size:11px;color:var(--rz-muted-foreground);">AI Overview</span>
+            <div style="flex:1;height:5px;border-radius:999px;background:rgba(250,250,250,0.10);overflow:hidden;"><div style="height:100%;width:18%;border-radius:999px;background:var(--rz-slate);"></div></div>
+            <span style="flex:0 0 22px;text-align:right;font-size:11px;color:var(--rz-foreground);">18</span>
+          </div>
+        </article>
+      </div>
+
+      <div style="display:flex;justify-content:center;margin-top:88px;">
+        <rz-orb-button href={u("/contact/")} height="52" padding="30">See where AI names you today</rz-orb-button>
+      </div>
+      </div>
+    </section>
+
+    <!-- 4 · SERVICES — comet mosaic, four families -->
+    <div style="padding:120px 72px 0;">
+      <div style="max-width:640px;">
+        <div style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);margin-bottom:18px;">How we do it</div>
+        <h2 style="margin:0 0 18px;font-family:var(--rz-font-display);font-weight:500;font-size:44px;line-height:1.14;letter-spacing:-0.02em;color:var(--rz-background);text-wrap:pretty;">None of it works on its own.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:rgba(15,15,18,0.70);text-wrap:pretty;">Each piece feeds the others. The map turns green when they agree with each other.</p>
+      </div>
+    </div>
+
+    <section data-screen-label="How we do it · 01 AI and Search Visibility" style="position:relative;width:1440px;height:1180px;">
+
+      <div style="position:absolute;left:72px;top:100px;width:510px;height:147px;">
+        <div style="font-size:13px;letter-spacing:0.22em;font-weight:600;color:var(--rz-slate-dark);margin-bottom:14px;">SECTION 01</div>
+        <div style="font-family:var(--rz-font-display);font-size:56px;font-weight:600;letter-spacing:-0.02em;line-height:1.05;color:var(--rz-background);">AI &amp; Search<br>Visibility</div>
+      </div>
+
+      <div style="position:absolute;left:72px;top:282px;width:510px;height:238px;font-size:18px;line-height:1.6;color:rgba(15,15,18,0.68);">
+        <p style="margin:0;text-wrap:pretty;">Six pieces decide whether the systems can confirm who you are — and name you when someone asks.</p>
+        <p style="margin:14px 0 0;text-wrap:pretty;">Each one feeds the next. Together they make you the answer instead of an option.</p>
+      </div>
+
+      <a href={u("/services/local-seo/")} style="position:absolute;left:617px;top:282px;width:238px;height:238px;border-radius:28px;background:linear-gradient(135deg,rgba(229,189,106,0.62) 0%,rgba(212,165,74,0.5) 22%,rgba(205,168,150,0.3) 42%,rgba(178,150,190,0.28) 58%,rgba(155,91,165,0.45) 80%,rgba(120,137,183,0.62) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#E5BD6A 0%,#D4A54A 24%,#C68F86 46%,#B87EC4 62%,#9B5BA5 80%,#7889B7 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-574px -118px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border:5px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.75),inset 0 -18px 32px -22px rgba(255,255,255,0.5),14px 24px 44px -18px rgba(70,45,95,0.42),4px 8px 14px -8px rgba(70,45,95,0.28);color:#000;display:flex;align-items:flex-end;padding:19px;font-size:18px;line-height:1.25;font-weight:600;text-decoration:none;overflow:hidden;isolation:isolate;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-2 hv-3"><span style="position:relative;z-index:1;">SEO</span></a>
+      <a href={u("/services/local-seo/")} style="position:absolute;left:344px;top:555px;width:238px;height:238px;border-radius:28px;background:linear-gradient(135deg,rgba(229,189,106,0.62) 0%,rgba(212,165,74,0.5) 22%,rgba(205,168,150,0.3) 42%,rgba(178,150,190,0.28) 58%,rgba(155,91,165,0.45) 80%,rgba(120,137,183,0.62) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#E5BD6A 0%,#D4A54A 24%,#C68F86 46%,#B87EC4 62%,#9B5BA5 80%,#7889B7 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-301px -391px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border:5px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.75),inset 0 -18px 32px -22px rgba(255,255,255,0.5),14px 24px 44px -18px rgba(70,45,95,0.42),4px 8px 14px -8px rgba(70,45,95,0.28);color:#000;display:flex;align-items:flex-end;padding:19px;font-size:18px;line-height:1.25;font-weight:600;text-decoration:none;overflow:hidden;isolation:isolate;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-4 hv-3"><span style="position:relative;z-index:1;">AI Visibility</span></a>
+      <a href={u("/services/local-seo/")} style="position:absolute;left:617px;top:555px;width:188px;height:188px;border-radius:24px;background:linear-gradient(135deg,rgba(168,124,127,0.46) 0%,rgba(160,116,132,0.42) 30%,rgba(152,104,140,0.4) 62%,rgba(139,90,146,0.5) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#B18A44 0%,#AC8460 26%,#A87C7F 50%,#9C6BA2 74%,#8E5F97 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-574px -391px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:5px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.5),9px 16px 30px -16px rgba(55,42,80,0.36),3px 6px 11px -7px rgba(55,42,80,0.24);color:#000;display:flex;align-items:flex-end;padding:15px;font-size:18px;line-height:1.25;font-weight:600;text-decoration:none;overflow:hidden;isolation:isolate;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-5 hv-6"><span style="position:relative;z-index:1;">Backlinking</span></a>
+
+      <a href={u("/services/local-seo/")} style="position:absolute;left:861px;top:604px;width:147px;height:147px;border-radius:20px;background:linear-gradient(135deg,rgba(229,189,106,0.62) 0%,rgba(212,165,74,0.5) 22%,rgba(205,168,150,0.3) 42%,rgba(178,150,190,0.28) 58%,rgba(155,91,165,0.45) 80%,rgba(120,137,183,0.62) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#E5BD6A 0%,#D4A54A 24%,#C68F86 46%,#B87EC4 62%,#9B5BA5 80%,#7889B7 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-818px -440px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border:5px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.75),inset 0 -18px 32px -22px rgba(255,255,255,0.5),14px 24px 44px -18px rgba(70,45,95,0.42),4px 8px 14px -8px rgba(70,45,95,0.28);color:#000;display:flex;align-items:flex-end;padding:11px;font-size:15px;line-height:1.25;font-weight:600;text-decoration:none;overflow:hidden;isolation:isolate;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-7 hv-3"><span style="position:relative;z-index:1;"></span></a>
+      <a href={u("/services/local-seo/")} style="position:absolute;left:646px;top:799px;width:147px;height:147px;border-radius:20px;background:linear-gradient(135deg,rgba(229,189,106,0.62) 0%,rgba(212,165,74,0.5) 22%,rgba(205,168,150,0.3) 42%,rgba(178,150,190,0.28) 58%,rgba(155,91,165,0.45) 80%,rgba(120,137,183,0.62) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#E5BD6A 0%,#D4A54A 24%,#C68F86 46%,#B87EC4 62%,#9B5BA5 80%,#7889B7 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-603px -635px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border:5px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.75),inset 0 -18px 32px -22px rgba(255,255,255,0.5),14px 24px 44px -18px rgba(70,45,95,0.42),4px 8px 14px -8px rgba(70,45,95,0.28);color:#000;display:flex;align-items:flex-end;padding:11px;font-size:15px;line-height:1.25;font-weight:600;text-decoration:none;overflow:hidden;isolation:isolate;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-8 hv-3"><span style="position:relative;z-index:1;"></span></a>
+
+      <a href={u("/services/local-seo/")} style="position:absolute;left:884px;top:842px;width:91px;height:91px;border-radius:17px;background:linear-gradient(135deg,rgba(176,138,70,0.5) 0%,rgba(159,122,55,0.42) 22%,rgba(151,108,111,0.3) 45%,rgba(139,90,146,0.28) 62%,rgba(90,106,146,0.5) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#C29C55 0%,#B18A44 24%,#A87C7F 46%,#9C6BA2 62%,#845588 80%,#6B7BA2 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-841px -678px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:3px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.5),9px 16px 30px -16px rgba(55,42,80,0.36),3px 6px 11px -7px rgba(55,42,80,0.24);color:#000;display:flex;align-items:flex-end;padding:7px;font-size:14px;white-space:nowrap;line-height:1.25;font-weight:600;text-decoration:none;overflow:hidden;isolation:isolate;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-9 hv-6"><span style="position:relative;z-index:1;"></span></a>
+
+      <div style="position:absolute;left:1010px;top:1010px;width:56px;height:56px;border-radius:15px;background:linear-gradient(135deg,rgba(176,138,70,0.5) 0%,rgba(159,122,55,0.42) 22%,rgba(151,108,111,0.3) 45%,rgba(139,90,146,0.28) 62%,rgba(90,106,146,0.5) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#C29C55 0%,#B18A44 24%,#A87C7F 46%,#9C6BA2 62%,#845588 80%,#6B7BA2 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-967px -846px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:2px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.5),9px 16px 30px -16px rgba(55,42,80,0.36),3px 6px 11px -7px rgba(55,42,80,0.24);overflow:hidden;isolation:isolate;" class="bf-10"></div>
+
+    </section>
+
+    <section data-screen-label="How we do it · 02 Paid Ads Management" style="position:relative;width:1440px;height:1180px;">
+
+      <div style="position:absolute;left:858px;top:100px;width:510px;height:147px;text-align:right;">
+        <div style="font-size:13px;letter-spacing:0.22em;font-weight:600;color:var(--rz-slate-dark);margin-bottom:14px;">SECTION 02</div>
+        <div style="font-family:var(--rz-font-display);font-size:56px;font-weight:600;letter-spacing:-0.02em;line-height:1.05;color:var(--rz-background);">Paid Ads<br>Management</div>
+      </div>
+
+      <div style="position:absolute;left:858px;top:282px;width:510px;height:238px;font-size:18px;line-height:1.6;color:rgba(15,15,18,0.68);text-align:right;">
+        <p style="margin:0;text-wrap:pretty;">Bought attention, while the rest of the work compounds underneath it.</p>
+        <p style="margin:14px 0 0;text-wrap:pretty;">You show up at the top today and earn the top over time. Both, not either.</p>
+      </div>
+
+      <a href={u("/services/google-ads/")} style="position:absolute;left:585px;top:282px;width:238px;height:238px;border-radius:28px;background:linear-gradient(135deg,rgba(184,126,196,0.62) 0%,rgba(171,105,184,0.5) 20%,rgba(158,98,178,0.3) 38%,rgba(140,112,186,0.28) 56%,rgba(128,131,185,0.45) 76%,rgba(110,128,180,0.62) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#C58FD4 0%,#B87EC4 22%,#A96BB5 40%,#9070B0 60%,#7C86B8 80%,#6F80B4 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-542px -118px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border:5px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.75),14px 24px 44px -18px rgba(70,45,95,0.42),4px 8px 14px -8px rgba(70,45,95,0.28);overflow:hidden;isolation:isolate;color:#000;display:flex;align-items:flex-end;padding:19px;font-size:18px;line-height:1.25;font-weight:600;text-decoration:none;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-11 hv-12"><span style="position:relative;z-index:1;">Google Ads</span></a>
+      <a href={u("/services/google-ads/")} style="position:absolute;left:858px;top:555px;width:238px;height:238px;border-radius:28px;background:linear-gradient(135deg,rgba(184,126,196,0.62) 0%,rgba(171,105,184,0.5) 20%,rgba(158,98,178,0.3) 38%,rgba(140,112,186,0.28) 56%,rgba(128,131,185,0.45) 76%,rgba(110,128,180,0.62) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#C58FD4 0%,#B87EC4 22%,#A96BB5 40%,#9070B0 60%,#7C86B8 80%,#6F80B4 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-815px -391px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border:5px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.75),14px 24px 44px -18px rgba(70,45,95,0.42),4px 8px 14px -8px rgba(70,45,95,0.28);overflow:hidden;isolation:isolate;color:#000;display:flex;align-items:flex-end;padding:19px;font-size:18px;line-height:1.25;font-weight:600;text-decoration:none;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-13 hv-12"><span style="position:relative;z-index:1;">Meta Ads</span></a>
+      <a href={u("/services/google-ads/")} style="position:absolute;left:635px;top:555px;width:188px;height:188px;border-radius:24px;background:linear-gradient(135deg,rgba(163,116,176,0.46) 0%,rgba(152,108,175,0.42) 30%,rgba(136,114,180,0.4) 62%,rgba(120,110,168,0.5) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#A87CB5 0%,#9C71AE 26%,#8E6DA8 50%,#836EA4 74%,#7A6FA0 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-592px -391px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:5px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.5),9px 16px 30px -16px rgba(55,42,80,0.36),3px 6px 11px -7px rgba(55,42,80,0.24);overflow:hidden;isolation:isolate;color:#000;display:flex;align-items:flex-end;padding:15px;font-size:18px;line-height:1.25;font-weight:600;text-decoration:none;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-14 hv-6"><span style="position:relative;z-index:1;">Local Services Ads</span></a>
+
+      <a href={u("/services/google-ads/")} style="position:absolute;left:432px;top:604px;width:147px;height:147px;border-radius:20px;background:linear-gradient(135deg,rgba(184,126,196,0.62) 0%,rgba(171,105,184,0.5) 20%,rgba(158,98,178,0.3) 38%,rgba(140,112,186,0.28) 56%,rgba(128,131,185,0.45) 76%,rgba(110,128,180,0.62) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#C58FD4 0%,#B87EC4 22%,#A96BB5 40%,#9070B0 60%,#7C86B8 80%,#6F80B4 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-389px -440px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border:5px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.75),14px 24px 44px -18px rgba(70,45,95,0.42),4px 8px 14px -8px rgba(70,45,95,0.28);overflow:hidden;isolation:isolate;color:#000;display:flex;align-items:flex-end;padding:11px;font-size:15px;line-height:1.25;font-weight:600;text-decoration:none;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-15 hv-12"><span style="position:relative;z-index:1;"></span></a>
+      <a href={u("/services/google-ads/")} style="position:absolute;left:647px;top:799px;width:147px;height:147px;border-radius:20px;background:linear-gradient(135deg,rgba(184,126,196,0.62) 0%,rgba(171,105,184,0.5) 20%,rgba(158,98,178,0.3) 38%,rgba(140,112,186,0.28) 56%,rgba(128,131,185,0.45) 76%,rgba(110,128,180,0.62) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#C58FD4 0%,#B87EC4 22%,#A96BB5 40%,#9070B0 60%,#7C86B8 80%,#6F80B4 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-604px -635px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border:5px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.75),14px 24px 44px -18px rgba(70,45,95,0.42),4px 8px 14px -8px rgba(70,45,95,0.28);overflow:hidden;isolation:isolate;color:#000;display:flex;align-items:flex-end;padding:11px;font-size:15px;line-height:1.25;font-weight:600;text-decoration:none;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-16 hv-12"><span style="position:relative;z-index:1;"></span></a>
+
+      <a href={u("/services/google-ads/")} style="position:absolute;left:465px;top:842px;width:91px;height:91px;border-radius:17px;background:linear-gradient(135deg,rgba(163,116,176,0.46) 0%,rgba(152,108,175,0.42) 30%,rgba(136,114,180,0.4) 62%,rgba(120,110,168,0.5) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#A87CB5 0%,#9C71AE 26%,#8E6DA8 50%,#836EA4 74%,#7A6FA0 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-422px -678px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:3px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.5),9px 16px 30px -16px rgba(55,42,80,0.36),3px 6px 11px -7px rgba(55,42,80,0.24);overflow:hidden;isolation:isolate;color:#000;display:flex;align-items:flex-end;padding:7px;font-size:14px;white-space:nowrap;line-height:1.25;font-weight:600;text-decoration:none;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-17 hv-6"><span style="position:relative;z-index:1;"></span></a>
+
+      <div style="position:absolute;left:374px;top:1010px;width:56px;height:56px;border-radius:15px;background:linear-gradient(135deg,rgba(163,116,176,0.46) 0%,rgba(152,108,175,0.42) 30%,rgba(136,114,180,0.4) 62%,rgba(120,110,168,0.5) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#A87CB5 0%,#9C71AE 26%,#8E6DA8 50%,#836EA4 74%,#7A6FA0 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-331px -846px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:2px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.5),9px 16px 30px -16px rgba(55,42,80,0.36),3px 6px 11px -7px rgba(55,42,80,0.24);overflow:hidden;isolation:isolate;" class="bf-18"></div>
+
+    </section>
+
+    <section data-screen-label="How we do it · 03 Web Services" style="position:relative;width:1440px;height:1180px;">
+
+      <div style="position:absolute;left:72px;top:100px;width:510px;height:147px;">
+        <div style="font-size:13px;letter-spacing:0.22em;font-weight:600;color:var(--rz-slate-dark);margin-bottom:14px;">SECTION 03</div>
+        <div style="font-family:var(--rz-font-display);font-size:56px;font-weight:600;letter-spacing:-0.02em;line-height:1.05;color:var(--rz-background);">Web<br>Services</div>
+      </div>
+
+      <div style="position:absolute;left:72px;top:282px;width:510px;height:238px;font-size:18px;line-height:1.6;color:rgba(15,15,18,0.68);">
+        <p style="margin:0;text-wrap:pretty;">The site every other piece of this points at.</p>
+        <p style="margin:14px 0 0;text-wrap:pretty;">Everything else sends people here. If it loads slow or reads wrong, the rest of the work pays for nothing.</p>
+      </div>
+
+      <a href={u("/services/web-development/")} style="position:absolute;left:617px;top:282px;width:238px;height:238px;border-radius:28px;background:linear-gradient(135deg,rgba(147,163,205,0.62) 0%,rgba(120,137,183,0.5) 20%,rgba(116,128,180,0.3) 38%,rgba(134,112,184,0.28) 56%,rgba(150,95,172,0.45) 78%,rgba(160,88,168,0.6) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#93A3CD 0%,#7889B7 22%,#7480B4 40%,#8C6FAF 60%,#9B5BA5 82%,#A4569E 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-574px -118px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border:5px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.75),14px 24px 44px -18px rgba(70,45,95,0.42),4px 8px 14px -8px rgba(70,45,95,0.28);overflow:hidden;isolation:isolate;color:#000;display:flex;align-items:flex-end;padding:19px;font-size:18px;line-height:1.25;font-weight:600;text-decoration:none;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-19 hv-12"><span style="position:relative;z-index:1;">Web Development</span></a>
+      <a href={u("/services/web-development/")} style="position:absolute;left:344px;top:555px;width:238px;height:238px;border-radius:28px;background:linear-gradient(135deg,rgba(147,163,205,0.62) 0%,rgba(120,137,183,0.5) 20%,rgba(116,128,180,0.3) 38%,rgba(134,112,184,0.28) 56%,rgba(150,95,172,0.45) 78%,rgba(160,88,168,0.6) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#93A3CD 0%,#7889B7 22%,#7480B4 40%,#8C6FAF 60%,#9B5BA5 82%,#A4569E 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-301px -391px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border:5px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.75),14px 24px 44px -18px rgba(70,45,95,0.42),4px 8px 14px -8px rgba(70,45,95,0.28);overflow:hidden;isolation:isolate;color:#000;display:flex;align-items:flex-end;padding:19px;font-size:18px;line-height:1.25;font-weight:600;text-decoration:none;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-20 hv-12"><span style="position:relative;z-index:1;">Web design</span></a>
+      <a href={u("/services/web-development/")} style="position:absolute;left:617px;top:555px;width:188px;height:188px;border-radius:24px;background:linear-gradient(135deg,rgba(126,140,183,0.46) 0%,rgba(124,130,180,0.42) 30%,rgba(132,116,174,0.4) 62%,rgba(140,104,160,0.5) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#8A9AC4 0%,#8590BE 26%,#8781B2 50%,#8A72A6 74%,#8C63A0 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-574px -391px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:5px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.5),9px 16px 30px -16px rgba(55,42,80,0.36),3px 6px 11px -7px rgba(55,42,80,0.24);overflow:hidden;isolation:isolate;color:#000;display:flex;align-items:flex-end;padding:15px;font-size:18px;line-height:1.25;font-weight:600;text-decoration:none;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-21 hv-6"><span style="position:relative;z-index:1;">Web Hosting &amp; Maintenance</span></a>
+
+      <a href={u("/services/web-development/")} style="position:absolute;left:861px;top:604px;width:147px;height:147px;border-radius:20px;background:linear-gradient(135deg,rgba(147,163,205,0.62) 0%,rgba(120,137,183,0.5) 20%,rgba(116,128,180,0.3) 38%,rgba(134,112,184,0.28) 56%,rgba(150,95,172,0.45) 78%,rgba(160,88,168,0.6) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#93A3CD 0%,#7889B7 22%,#7480B4 40%,#8C6FAF 60%,#9B5BA5 82%,#A4569E 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-818px -440px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border:5px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.75),14px 24px 44px -18px rgba(70,45,95,0.42),4px 8px 14px -8px rgba(70,45,95,0.28);overflow:hidden;isolation:isolate;color:#000;display:flex;align-items:flex-end;padding:11px;font-size:15px;line-height:1.25;font-weight:600;text-decoration:none;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-22 hv-12"><span style="position:relative;z-index:1;"></span></a>
+      <a href={u("/services/web-development/")} style="position:absolute;left:646px;top:799px;width:147px;height:147px;border-radius:20px;background:linear-gradient(135deg,rgba(147,163,205,0.62) 0%,rgba(120,137,183,0.5) 20%,rgba(116,128,180,0.3) 38%,rgba(134,112,184,0.28) 56%,rgba(150,95,172,0.45) 78%,rgba(160,88,168,0.6) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#93A3CD 0%,#7889B7 22%,#7480B4 40%,#8C6FAF 60%,#9B5BA5 82%,#A4569E 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-603px -635px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border:5px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.75),14px 24px 44px -18px rgba(70,45,95,0.42),4px 8px 14px -8px rgba(70,45,95,0.28);overflow:hidden;isolation:isolate;color:#000;display:flex;align-items:flex-end;padding:11px;font-size:15px;line-height:1.25;font-weight:600;text-decoration:none;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-23 hv-12"><span style="position:relative;z-index:1;"></span></a>
+
+      <a href={u("/services/web-development/")} style="position:absolute;left:884px;top:842px;width:91px;height:91px;border-radius:17px;background:linear-gradient(135deg,rgba(126,140,183,0.46) 0%,rgba(124,130,180,0.42) 30%,rgba(132,116,174,0.4) 62%,rgba(140,104,160,0.5) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#8A9AC4 0%,#8590BE 26%,#8781B2 50%,#8A72A6 74%,#8C63A0 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-841px -678px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:3px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.5),9px 16px 30px -16px rgba(55,42,80,0.36),3px 6px 11px -7px rgba(55,42,80,0.24);overflow:hidden;isolation:isolate;color:#000;display:flex;align-items:flex-end;padding:7px;font-size:14px;white-space:nowrap;line-height:1.25;font-weight:600;text-decoration:none;transition:box-shadow 220ms ease,transform 220ms ease;" class="bf-24 hv-6"><span style="position:relative;z-index:1;"></span></a>
+
+      <div style="position:absolute;left:1010px;top:1010px;width:56px;height:56px;border-radius:15px;background:linear-gradient(135deg,rgba(126,140,183,0.46) 0%,rgba(124,130,180,0.42) 30%,rgba(132,116,174,0.4) 62%,rgba(140,104,160,0.5) 100%) padding-box,linear-gradient(113deg,rgba(255,255,255,0.22) -7.1%,rgba(255,255,255,0.34) 14.3%,rgba(255,255,255,0.75) 31.4%,rgba(255,255,255,0.95) 37.5%,rgba(255,255,255,0.66) 43.6%,rgba(255,255,255,0.45) 60.8%,rgba(255,255,255,0.34) 82.1%) border-box,linear-gradient(315deg,#8A9AC4 0%,#8590BE 26%,#8781B2 50%,#8A72A6 74%,#8C63A0 100%) border-box;background-size:auto,1600px 1600px,auto;background-position:0 0,-967px -846px,0 0;background-repeat:no-repeat;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:2px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,0.5),9px 16px 30px -16px rgba(55,42,80,0.36),3px 6px 11px -7px rgba(55,42,80,0.24);overflow:hidden;isolation:isolate;" class="bf-10"></div>
+
+    </section>
+
+    <!-- 5 · HOW TO GET STARTED -->
+    <section data-screen-label="How to get started" style="padding:120px 72px;">
+      <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:88px;">
+
+        <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end;">
+          <div style="grid-column:1 / span 6;display:flex;flex-direction:column;gap:20px;">
+            <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">How to get started</span>
+            <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:40px;line-height:1.16;letter-spacing:-0.02em;color:var(--rz-background);text-wrap:pretty;">It starts with a call, not a contract.</h2>
+          </div>
+          <div style="grid-column:8 / span 5;">
+            <p style="margin:0;font-size:18px;line-height:1.6;color:rgba(15,15,18,0.68);text-wrap:pretty;">Three steps to the first month. You'll know what we'd change, and what we're starting from, before anything is signed.</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px;">
+          <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(15,15,18,0.10);padding-top:24px;">
+            <span style="font-size:11px;font-weight:600;letter-spacing:0.18em;color:var(--rz-slate-dark);">01</span>
+            <h3 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:22px;line-height:1.25;color:var(--rz-background);">Book a call</h3>
+            <p style="margin:0;font-size:16px;line-height:1.625;color:rgba(15,15,18,0.7);text-wrap:pretty;">Thirty minutes. We look at your site, your map listing, and what AI says about you today, and tell you what we'd change first.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(15,15,18,0.10);padding-top:24px;">
+            <span style="font-size:11px;font-weight:600;letter-spacing:0.18em;color:var(--rz-slate-dark);">02</span>
+            <h3 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:22px;line-height:1.25;color:var(--rz-background);">You see where you stand</h3>
+            <p style="margin:0;font-size:16px;line-height:1.625;color:rgba(15,15,18,0.7);text-wrap:pretty;">A written plan and the numbers we're starting from, before anything gets touched. If it isn't a fit, we'll say so on that call.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(15,15,18,0.10);padding-top:24px;">
+            <span style="font-size:11px;font-weight:600;letter-spacing:0.18em;color:var(--rz-slate-dark);">03</span>
+            <h3 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:22px;line-height:1.25;color:var(--rz-background);">We run it, month by month</h3>
+            <p style="margin:0;font-size:16px;line-height:1.625;color:rgba(15,15,18,0.7);text-wrap:pretty;">The same two people every month, and reporting that starts at the jobs on your calendar and works backwards.</p>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:flex-start;">
+          <rz-orb-button href={u("/contact/")} height="52" padding="30">Book a Call</rz-orb-button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6 · WHO'S BEHIND IT -->
+    <section data-screen-label="Who's behind it" style="padding:0 72px 120px;">
+      <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:80px;">
+
+        <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:24px;">
+          <div style="grid-column:1 / span 8;display:flex;flex-direction:column;gap:20px;">
+            <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">Who's behind it</span>
+            <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:44px;line-height:1.14;letter-spacing:-0.02em;color:var(--rz-background);text-wrap:pretty;">Most agencies sell you a channel. We run the whole loop.</h2>
+            <p style="margin:0;font-size:18px;line-height:1.6;color:rgba(15,15,18,0.68);max-width:620px;text-wrap:pretty;">Raiz is two people who do the work themselves. Search, ads, the site, and the follow-up all sit under one roof, which is the only way they compound instead of cancelling each other out.</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:24px;">
+          <div style="grid-column:1 / span 5;display:flex;flex-direction:column;gap:24px;">
+            <div style="width:100%;aspect-ratio:1/1;border-radius:12px;overflow:hidden;">
+              <ImageSlot id="raiz-founder-1" shape="rect" placeholder="Ryan Maizis — portrait, square" />
+            </div>
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px solid rgba(15,15,18,0.12);padding-bottom:14px;">
+                <span style="font-family:var(--rz-font-display);font-weight:500;font-size:26px;letter-spacing:-0.01em;color:var(--rz-background);">Ryan Maizis</span>
+                <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">Co-Founder</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:1.625;color:rgba(15,15,18,0.7);max-width:420px;text-wrap:pretty;">[X] years running paid media for [type of client]. Owns the ad accounts and the measurement behind them — the two people on your call are the two people in the account.</p>
+            </div>
+          </div>
+
+          <div style="grid-column:7 / span 5;display:flex;flex-direction:column;gap:24px;">
+            <div style="width:100%;aspect-ratio:1/1;border-radius:12px;overflow:hidden;">
+              <ImageSlot id="raiz-founder-2" shape="rect" placeholder="Kyle Sabraw — portrait, square" />
+            </div>
+            <div style="display:flex;flex-direction:column;gap:16px;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px solid rgba(15,15,18,0.12);padding-bottom:14px;">
+                <span style="font-family:var(--rz-font-display);font-weight:500;font-size:26px;letter-spacing:-0.01em;color:var(--rz-background);">Kyle Sabraw</span>
+                <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">Co-Founder</span>
+              </div>
+              <p style="margin:0;font-size:16px;line-height:1.625;color:rgba(15,15,18,0.7);max-width:420px;text-wrap:pretty;">Building for search since [year]. Owns the sites, the technical work, and how you show up when a model answers instead of a results page.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    </div>
+
+    <!-- 6 · CLOSING CTA -->
+    <section data-screen-label="Closing CTA" style="background:var(--rz-foreground);padding:0 72px 120px;">
+      <div style="max-width:1100px;margin:0 auto;background:var(--rz-gradient-surface);border:1px solid var(--rz-border);border-radius:12px;padding:80px;display:flex;flex-direction:column;align-items:center;gap:32px;">
+        <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:32px;line-height:1.25;color:var(--rz-foreground);text-align:center;max-width:640px;text-wrap:pretty;">You've seen the coverage and the tracking. Let's look at yours.</h2>
+        <rz-orb-button href={u("/contact/")} height="52" padding="32">Book a Call</rz-orb-button>
+        <span style="font-size:14px;color:var(--rz-purple-light);visibility:hidden;">Or get a free read on your own AI visibility →</span>
+      </div>
+    </section>

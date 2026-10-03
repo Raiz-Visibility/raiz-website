@@ -1,0 +1,14 @@
+:root {
+  /* The brand is dark-first and border-led: elevation reads through a 1px
+     #262630 hairline, not drop shadows. Only overlays use shadow. */
+  --rz-border-hairline: 1px solid var(--rz-border);
+  --rz-shadow-overlay: 0 24px 60px rgba(0, 0, 0, 0.65);
+  --rz-scrim: rgba(15, 15, 18, 0.72);
+
+  --rz-transition-fast: 120ms ease;
+  --rz-transition: 160ms ease;
+  --rz-transition-slow: 280ms ease;
+
+  --rz-focus-ring: 0 0 0 2px var(--rz-background), 0 0 0 4px var(--rz-gold);
+  --rz-blur-panel: blur(12px);
+}

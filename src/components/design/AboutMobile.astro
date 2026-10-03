@@ -1,0 +1,84 @@
+---
+import ImageSlot from '../ImageSlot.astro';
+import { industries } from '../../data/site';
+const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
+---
+<div style="padding:56px 16px;display:flex;flex-direction:column;gap:22px;">
+      <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">About Raiz</span>
+      <h1 style="margin:0;font-family:var(--rz-font-display);font-weight:700;font-size:40px;line-height:1.08;letter-spacing:-0.02em;color:var(--rz-background);text-wrap:pretty;">Two people, doing the work <span style="background:var(--rz-gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent;">ourselves.</span></h1>
+      <p style="margin:0;font-size:16px;line-height:1.6;color:rgba(15,15,18,0.70);text-wrap:pretty;">We help home service businesses get found — on the map, in search, and in the answer AI gives when someone asks who to call.</p>
+    </div>
+
+    <div style="margin:0 16px;padding:40px 0 56px;border-top:1px solid rgba(15,15,18,0.10);display:flex;flex-direction:column;gap:16px;">
+      <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">Why we started Raiz</span>
+      <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:28px;line-height:1.2;letter-spacing:-0.02em;color:var(--rz-background);text-wrap:pretty;">Most agencies sell you a channel. Your customers don't search in channels.</h2>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:rgba(15,15,18,0.75);text-wrap:pretty;">A homeowner might search Google, check the map, see an ad and ask ChatGPT inside ten minutes. Each is usually handled by a different vendor, chasing a different number.</p>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:rgba(15,15,18,0.75);text-wrap:pretty;">We run the whole loop — planned together, measured against booked jobs.</p>
+      <div style="height:2px;width:80px;background:var(--rz-gradient-purple-slate);margin-top:8px;"></div>
+      <p style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:21px;line-height:1.3;color:var(--rz-background);">One clear story about your business, everywhere the machines look.</p>
+    </div>
+
+    <div style="padding:56px 16px;background:#F2F2F5;display:flex;flex-direction:column;gap:40px;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">Who's behind it</span>
+        <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:28px;line-height:1.2;letter-spacing:-0.02em;color:var(--rz-background);text-wrap:pretty;">The two people on your call are the two people in your accounts.</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="aspect-ratio:1;border-radius:14px;overflow:hidden;"><ImageSlot id="raiz-founder-1" shape="rounded" radius={14} placeholder="Ryan Maizis — portrait, square" /></div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;">
+          <span style="font-family:var(--rz-font-display);font-weight:600;font-size:26px;letter-spacing:-0.02em;color:var(--rz-background);">Ryan Maizis</span>
+          <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">Co-Founder</span>
+        </div>
+        <p style="margin:0;font-size:15px;line-height:1.65;color:rgba(15,15,18,0.75);">[X] years running paid media for [type of client]. Ryan owns the ad accounts and the measurement behind them — every dollar traced from click to booked job.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="aspect-ratio:1;border-radius:14px;overflow:hidden;"><ImageSlot id="raiz-founder-2" shape="rounded" radius={14} placeholder="Kyle Sabraw — portrait, square" /></div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;">
+          <span style="font-family:var(--rz-font-display);font-weight:600;font-size:26px;letter-spacing:-0.02em;color:var(--rz-background);">Kyle Sabraw</span>
+          <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">Co-Founder</span>
+        </div>
+        <p style="margin:0;font-size:15px;line-height:1.65;color:rgba(15,15,18,0.75);">Building for search since [year]. Kyle owns the sites, the technical work, and how you show up when a model answers instead of a results page.</p>
+      </div>
+    </div>
+
+    <div style="padding:56px 16px;display:flex;flex-direction:column;gap:28px;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">How we work</span>
+        <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:28px;line-height:1.2;letter-spacing:-0.02em;color:var(--rz-background);">Four things we won't compromise on.</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid rgba(15,15,18,0.10);padding-top:20px;">
+        <span style="font-size:11px;font-weight:600;letter-spacing:0.18em;color:var(--rz-slate-dark);">01</span>
+        <h3 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:19px;color:var(--rz-background);">No one in between</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.6;color:rgba(15,15,18,0.7);">No account managers relaying messages. You talk to the people doing the work.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid rgba(15,15,18,0.10);padding-top:20px;">
+        <span style="font-size:11px;font-weight:600;letter-spacing:0.18em;color:var(--rz-slate-dark);">02</span>
+        <h3 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:19px;color:var(--rz-background);">Booked jobs first</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.6;color:rgba(15,15,18,0.7);">Reporting starts at the jobs on your calendar and works backwards.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid rgba(15,15,18,0.10);padding-top:20px;">
+        <span style="font-size:11px;font-weight:600;letter-spacing:0.18em;color:var(--rz-slate-dark);">03</span>
+        <h3 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:19px;color:var(--rz-background);">Everything compounds</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.6;color:rgba(15,15,18,0.7);">Search, ads and the site are planned together, so each makes the others work harder.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid rgba(15,15,18,0.10);padding-top:20px;">
+        <span style="font-size:11px;font-weight:600;letter-spacing:0.18em;color:var(--rz-slate-dark);">04</span>
+        <h3 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:19px;color:var(--rz-background);">Straight answers</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.6;color:rgba(15,15,18,0.7);">If we can't move the number for you, we'll say so on the first call.</p>
+      </div>
+    </div>
+
+    <div style="padding:0 16px 56px;display:flex;flex-direction:column;gap:12px;">
+      <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">Who we work with</span>
+      <h2 style="margin:0 0 8px;font-family:var(--rz-font-display);font-weight:500;font-size:24px;color:var(--rz-background);">Only home services.</h2>
+      {industries.map((ind) => (
+<a href={u("/industries/")} style="display:flex;align-items:center;justify-content:space-between;min-height:48px;border-bottom:1px solid rgba(15,15,18,0.10);font-family:var(--rz-font-display);font-size:18px;font-weight:500;color:var(--rz-background);">{ind}<span style="color:rgba(15,15,18,0.4);">→</span></a>
+))}
+    </div>
+
+    <div style="padding:0 16px 56px;">
+      <div style="background:var(--rz-gradient-surface);border:1px solid var(--rz-border);border-radius:12px;padding:40px 24px;display:flex;flex-direction:column;align-items:center;gap:24px;">
+        <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:24px;line-height:1.28;color:var(--rz-foreground);text-align:center;text-wrap:pretty;">Thirty minutes with both of us. We'll show you where you stand.</h2>
+        <rz-orb-button href={u("/contact/")} height="52" padding="30" full>Book a Call</rz-orb-button>
+      </div>
+    </div>

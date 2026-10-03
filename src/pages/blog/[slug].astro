@@ -1,0 +1,41 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import BlogPostDesktop from '../../components/design/BlogPostDesktop.astro';
+import BlogPostMobile from '../../components/design/BlogPostMobile.astro';
+import { getPosts, type Post } from '../../data/blog';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => {
+    // "Keep reading": one post from each other category first, newest first, then fill to three.
+    const others = posts.filter((p) => p.id !== post.id);
+    const picked: Post[] = [];
+    for (const p of others) if (!picked.some((q) => q.data.category === p.data.category) && p.data.category !== post.data.category) picked.push(p);
+    for (const p of others) if (picked.length < 3 && !picked.includes(p)) picked.push(p);
+    return { params: { slug: post.id }, props: { post, related: picked.slice(0, 3) } };
+  });
+}
+
+const { post, related } = Astro.props;
+const { Content, headings } = await render(post);
+---
+<Base title={post.data.title} description={post.data.excerpt}>
+  <BlogPostDesktop slot="desktop" post={post} headings={headings} related={related}><Content /></BlogPostDesktop>
+  <BlogPostMobile slot="mobile" post={post} related={related}><Content /></BlogPostMobile>
+</Base>
+
+<script>
+  // Highlight the section being read in the "In this post" list.
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.toc-link'));
+  const targets = links.map((a) => document.getElementById(decodeURIComponent(a.hash.slice(1)))).filter(Boolean) as HTMLElement[];
+  if (targets.length) {
+    const onScroll = () => {
+      let active = 0;
+      targets.forEach((t, i) => { if (t.getBoundingClientRect().top < window.innerHeight * 0.3) active = i; });
+      links.forEach((a, i) => a.setAttribute('aria-current', String(i === active)));
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+</script>

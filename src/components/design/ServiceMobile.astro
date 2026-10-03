@@ -1,0 +1,91 @@
+---
+import ImageSlot from '../ImageSlot.astro';
+import type { CollectionEntry } from 'astro:content';
+import { industries, categories } from '../../data/site';
+interface Props { service: CollectionEntry<'services'>['data']; slug: string }
+const { slug } = Astro.props;
+const s = Astro.props.service;
+const c = categories[s.category];
+const { serviceName, category } = s;
+const categoryNum = c.num;
+const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
+---
+<div style="padding:48px 16px 56px;display:flex;flex-direction:column;gap:22px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="width:12px;height:12px;border-radius:4px;background:var(--accent);"></span>
+        <span style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--rz-slate-dark);">{categoryNum} · {serviceName}</span>
+      </div>
+      <h1 style="margin:0;font-family:var(--rz-font-display);font-weight:700;font-size:38px;line-height:1.08;letter-spacing:-0.02em;color:var(--rz-background);text-wrap:pretty;">{s.hero.titleMobile ?? s.hero.title}</h1>
+      <p style="margin:0;font-size:16px;line-height:1.6;color:rgba(15,15,18,0.70);text-wrap:pretty;">{s.hero.leadMobile ?? s.hero.lead}</p>
+      <rz-orb-button href={u("/contact/")} height="52" padding="30" full>Book a Call</rz-orb-button>
+    </div>
+
+    <div style="padding:40px 16px 56px;margin:0 16px;border-top:1px solid rgba(15,15,18,0.10);padding-left:0;padding-right:0;display:flex;flex-direction:column;gap:16px;">
+      <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">The problem</span>
+      <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:28px;line-height:1.2;letter-spacing:-0.02em;color:var(--rz-background);text-wrap:pretty;">{s.problem.heading}</h2>
+      {(s.problem.paragraphsMobile ?? s.problem.paragraphs).map((p) => (
+        <p style="margin:0;font-size:15px;line-height:1.65;color:rgba(15,15,18,0.75);">{p}</p>
+      ))}
+      <div style="height:2px;width:80px;background:var(--accent);margin-top:8px;"></div>
+      <p style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:21px;line-height:1.3;color:var(--rz-background);">{s.problem.pull}</p>
+    </div>
+
+    <div style="padding:56px 16px;background:#F2F2F5;display:flex;flex-direction:column;gap:16px;">
+      <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">What's included</span>
+      <h2 style="margin:0 0 8px;font-family:var(--rz-font-display);font-weight:500;font-size:28px;line-height:1.2;letter-spacing:-0.02em;color:var(--rz-background);">What you get with {serviceName}.</h2>
+      {s.included.items.map((item, i) => (
+      <div style="background:var(--rz-foreground);border:1px solid rgba(15,15,18,0.08);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="width:10px;height:10px;border-radius:3px;background:var(--accent);"></span>
+            <span style="font-size:11px;font-weight:600;letter-spacing:0.18em;color:var(--rz-slate-dark);">{String(i + 1).padStart(2, '0')}</span>
+          </div>
+          <h3 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:19px;line-height:1.25;color:var(--rz-background);">{item.title}</h3>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:rgba(15,15,18,0.68);">{item.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <div style="padding:56px 16px;display:flex;flex-direction:column;gap:28px;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">How it works</span>
+        <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:28px;line-height:1.2;letter-spacing:-0.02em;color:var(--rz-background);">{s.steps.heading}</h2>
+      </div>
+      {s.steps.items.map((step, i) => (
+      <div style="display:flex;gap:16px;">
+          <span style="flex:0 0 auto;width:36px;height:36px;border-radius:10px;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--rz-background);">{String(i + 1).padStart(2, '0')}</span>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">{step.when}</span>
+            <h3 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:19px;line-height:1.25;color:var(--rz-background);">{step.title}</h3>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:rgba(15,15,18,0.68);">{step.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div style="padding:0 16px 56px;">
+      <div style="background:var(--rz-background);border-radius:14px;padding:32px 20px;display:flex;flex-direction:column;gap:18px;">
+        <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate);">{s.results.label}</span>
+        <div style="font-family:var(--rz-font-display);font-weight:600;font-size:60px;line-height:1;letter-spacing:-0.03em;color:var(--accent-on-dark);">{s.results.stat}</div>
+        <p style="margin:0;font-size:15px;line-height:1.55;color:var(--rz-foreground);">{s.results.statTextMobile ?? s.results.statText}</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="aspect-ratio:1;border-radius:10px;overflow:hidden;"><ImageSlot id={`${slug}-before`} shape="rounded" radius={10} placeholder="Before" /></div>
+          <div style="aspect-ratio:1;border-radius:10px;overflow:hidden;"><ImageSlot id={`${slug}-after`} shape="rounded" radius={10} placeholder="After" /></div>
+        </div>
+        <p style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:18px;line-height:1.4;color:var(--rz-foreground);">{s.results.quoteMobile ?? s.results.quote}</p>
+        <span style="font-size:13px;color:var(--rz-muted-foreground);">{s.results.attribution}</span>
+      </div>
+    </div>
+
+    <div style="padding:0 16px 56px;display:flex;flex-direction:column;gap:12px;">
+      <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">Industries served</span>
+      {industries.map((ind) => (
+<a href={u("/industries/")} style="display:flex;align-items:center;justify-content:space-between;min-height:48px;border-bottom:1px solid rgba(15,15,18,0.10);font-family:var(--rz-font-display);font-size:18px;font-weight:500;color:var(--rz-background);">{ind}<span style="color:rgba(15,15,18,0.4);">→</span></a>
+))}
+    </div>
+
+    <div style="padding:0 16px 56px;">
+      <div style="background:var(--rz-gradient-surface);border:1px solid var(--rz-border);border-radius:12px;padding:40px 24px;display:flex;flex-direction:column;align-items:center;gap:24px;">
+        <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:24px;line-height:1.28;color:var(--rz-foreground);text-align:center;text-wrap:pretty;">{s.cta}</h2>
+        <rz-orb-button href={u("/contact/")} height="52" padding="30" full>Book a Call</rz-orb-button>
+      </div>
+    </div>

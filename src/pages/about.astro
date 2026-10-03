@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import AboutDesktop from '../components/design/AboutDesktop.astro';
+import AboutMobile from '../components/design/AboutMobile.astro';
+---
+<Base title="About" description="Raiz is two people who do the work themselves — search, ads, the site, and the follow-up under one roof, for home services businesses.">
+  <AboutDesktop slot="desktop" />
+  <AboutMobile slot="mobile" />
+</Base>

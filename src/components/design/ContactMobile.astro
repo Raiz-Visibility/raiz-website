@@ -1,0 +1,43 @@
+---
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT as string | undefined;
+const interests = [
+  { label: 'AI & Search Visibility', accent: 'var(--rz-gold)' },
+  { label: 'Paid Ad Management', accent: 'var(--rz-purple)' },
+  { label: 'Web Services', accent: 'var(--rz-slate)' },
+  { label: 'Not sure yet', accent: 'rgba(15,15,18,0.25)' },
+];
+const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
+---
+<div style="padding:48px 16px 32px;display:flex;flex-direction:column;gap:20px;">
+      <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">Contact</span>
+      <h1 style="margin:0;font-family:var(--rz-font-display);font-weight:700;font-size:40px;line-height:1.08;letter-spacing:-0.02em;color:var(--rz-background);">Let's look at where you <span style="background:var(--rz-gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent;">stand.</span></h1>
+      <p style="margin:0;font-size:16px;line-height:1.6;color:rgba(15,15,18,0.70);">Thirty minutes with both of us. No contract, no pitch deck — just what we'd change first.</p>
+    </div>
+
+    <div style="margin:0 16px 40px;background:#F2F2F5;border:1px solid rgba(15,15,18,0.08);border-radius:14px;padding:20px;">
+      <form class="contact-form" action={endpoint || undefined} method="post" style="display:flex;flex-direction:column;gap:16px;">
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:500;color:var(--rz-background);">Your name<input name="name" required autocomplete="name" style="height:48px;padding:0 14px;border-radius:10px;border:1px solid rgba(15,15,18,0.14);background:var(--rz-foreground);font-size:16px;" /></label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:500;color:var(--rz-background);">Business name<input name="business" required autocomplete="organization" style="height:48px;padding:0 14px;border-radius:10px;border:1px solid rgba(15,15,18,0.14);background:var(--rz-foreground);font-size:16px;" /></label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:500;color:var(--rz-background);">Email<input name="email" required autocomplete="email" type="email" style="height:48px;padding:0 14px;border-radius:10px;border:1px solid rgba(15,15,18,0.14);background:var(--rz-foreground);font-size:16px;" /></label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:500;color:var(--rz-background);">Phone<input name="phone" autocomplete="tel" type="tel" style="height:48px;padding:0 14px;border-radius:10px;border:1px solid rgba(15,15,18,0.14);background:var(--rz-foreground);font-size:16px;" /></label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:500;color:var(--rz-background);">Trade
+          <select name="trade" style="height:48px;padding:0 12px;border-radius:10px;border:1px solid rgba(15,15,18,0.14);background:var(--rz-foreground);font-size:16px;">
+            <option>Plumbing</option><option>HVAC</option><option>Electrical</option><option>Septic</option><option>Painting</option><option>Landscaping</option><option>Restoration</option><option>Something else</option>
+          </select>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:500;color:var(--rz-background);">Anything we should know?<textarea name="message" rows="4" style="padding:12px 14px;border-radius:10px;border:1px solid rgba(15,15,18,0.14);background:var(--rz-foreground);font-size:16px;resize:vertical;"></textarea></label>
+        <button type="submit" style="height:52px;border:0;border-radius:10px;background:var(--rz-purple);color:var(--rz-foreground);font-size:15px;font-weight:500;" data-submit-label>Book a Call</button>
+        <span style="font-size:13px;color:rgba(15,15,18,0.55);text-align:center;">We reply within one business day.</span>
+      </form>
+    </div>
+
+    <div style="padding:0 16px 48px;display:flex;flex-direction:column;gap:16px;">
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">Email</span>
+        <a href="mailto:hello@raizvisibility.com" style="font-size:16px;color:var(--rz-background);min-height:44px;display:flex;align-items:center;">hello@raizvisibility.com</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">Phone</span>
+        <span style="font-size:16px;color:var(--rz-background);">[(000) 000-0000]</span>
+      </div>
+    </div>

@@ -1,0 +1,64 @@
+---
+import '../styles/global.css';
+import HeaderDesktop from '../components/HeaderDesktop.astro';
+import HeaderMobile from '../components/HeaderMobile.astro';
+import FooterDesktop from '../components/FooterDesktop.astro';
+import FooterMobile from '../components/FooterMobile.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const fullTitle = title === 'Home' ? 'Raiz Visibility — Search & AI Visibility for Home Services' : `${title} — Raiz Visibility`;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/favicon.svg`} type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script is:inline>
+      // Scale the 1440px desktop composition down to fit 1024–1439px viewports.
+      (function () {
+        var r = document.documentElement;
+        function fit() { var w = r.clientWidth || window.innerWidth; r.style.setProperty('--dz', String(Math.min(1, w / 1440))); }
+        fit();
+        window.addEventListener('resize', fit);
+      })();
+    </script>
+  </head>
+  <body>
+    <a href="#main" style="position:absolute;left:-9999px;top:0;" onfocus="this.style.left='8px'" onblur="this.style.left='-9999px'">Skip to content</a>
+
+    <div class="d-site">
+      <HeaderDesktop />
+      <main id="main">
+        <slot name="desktop" />
+      </main>
+      <FooterDesktop />
+    </div>
+
+    <div class="m-site">
+      <HeaderMobile />
+      <main>
+        <slot name="mobile" />
+      </main>
+      <FooterMobile />
+    </div>
+
+    <script>
+      import '../scripts/rz-orb-button.js';
+    </script>
+  </body>
+</html>
