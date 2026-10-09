@@ -95,3 +95,6 @@ rz-orb-button[full]:not(:defined) { display: flex; width: 100%; }
 .ichip:has(input:checked) { --chip-bg: var(--rz-foreground); --chip-border: var(--rz-background); }
 .ichip input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
 .ichip:has(input:focus-visible) { outline: 2px solid var(--rz-gold); outline-offset: 2px; }
+
+/* ── One-page section anchors ── */
+[data-section] { scroll-margin-top: 24px; }

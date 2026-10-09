@@ -1,4 +1,5 @@
 ---
+import { sections } from '../data/site';
 const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
 ---
 <header style="background:var(--rz-foreground);border-bottom:1px solid rgba(15,15,18,0.10);position:relative;z-index:20;">
@@ -8,75 +9,12 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
           <span style="font-family:var(--rz-font-display);font-weight:400;font-size:8px;letter-spacing:0.5em;color:var(--rz-background);padding-left:4px;">VISIBILITY</span>
         </a>
 
-        <nav style="display:flex;align-items:center;gap:32px;margin-left:auto;margin-right:32px;">
-          <div class="dd" style="position:static;">
-            <span tabindex="0" aria-haspopup="true" style="display:flex;align-items:center;gap:6px;font-size:15px;font-weight:400;color:var(--rz-background);cursor:pointer;padding:44px 0;margin:-44px 0;">Services
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-            </span>
-            <div class="dd-panel">
-              <div style="position:absolute;top:100%;left:0;right:0;background:var(--rz-foreground);border-top:1px solid rgba(15,15,18,0.10);border-bottom:1px solid rgba(15,15,18,0.10);box-shadow:0 24px 48px rgba(15,15,18,0.10);">
-                <div style="padding:40px 72px 32px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));">
-                  <div style="display:flex;flex-direction:column;gap:14px;padding-right:32px;">
-                    <div style="display:flex;align-items:center;gap:10px;"><span style="width:12px;height:12px;border-radius:4px;background:var(--rz-gold);"></span><span style="font-size:11px;letter-spacing:0.22em;font-weight:600;color:var(--rz-slate-dark);">01</span></div>
-                    <a href={u("/services/local-seo/")} style="font-family:var(--rz-font-display);font-size:22px;font-weight:600;letter-spacing:-0.01em;line-height:1.15;color:var(--rz-background);text-decoration:none;">AI &amp; Search Visibility</a>
-                    <p style="margin:0;font-size:13.5px;line-height:1.55;color:rgba(15,15,18,0.62);text-wrap:pretty;">Make the systems confirm who you are — and name you.</p>
-                    <div style="display:flex;flex-direction:column;margin-top:4px;">
-                      <a href={u("/services/local-seo/")} style="padding:9px 12px;margin:0 -12px;border-radius:10px;font-size:15px;color:var(--rz-background);text-decoration:none;" class="hv-25">Local SEO</a>
-                      <a href={u("/services/local-seo/")} style="padding:9px 12px;margin:0 -12px;border-radius:10px;font-size:15px;color:var(--rz-background);text-decoration:none;" class="hv-25">SEO</a>
-                      <a href={u("/services/local-seo/")} style="padding:9px 12px;margin:0 -12px;border-radius:10px;font-size:15px;color:var(--rz-background);text-decoration:none;" class="hv-25">AI Visibility</a>
-                      <a href={u("/services/local-seo/")} style="padding:9px 12px;margin:0 -12px;border-radius:10px;font-size:15px;color:var(--rz-background);text-decoration:none;" class="hv-25">Backlinking</a>
-                    </div>
-                  </div>
-                  <div style="display:flex;flex-direction:column;gap:14px;padding-right:32px;">
-                    <div style="display:flex;align-items:center;gap:10px;"><span style="width:12px;height:12px;border-radius:4px;background:var(--rz-purple);"></span><span style="font-size:11px;letter-spacing:0.22em;font-weight:600;color:var(--rz-slate-dark);">02</span></div>
-                    <a href={u("/services/google-ads/")} style="font-family:var(--rz-font-display);font-size:22px;font-weight:600;letter-spacing:-0.01em;line-height:1.15;color:var(--rz-background);text-decoration:none;">Paid Ad Management</a>
-                    <p style="margin:0;font-size:13.5px;line-height:1.55;color:rgba(15,15,18,0.62);text-wrap:pretty;">Bought attention, while the rest of the work compounds underneath it.</p>
-                    <div style="display:flex;flex-direction:column;margin-top:4px;">
-                      <a href={u("/services/google-ads/")} style="padding:9px 12px;margin:0 -12px;border-radius:10px;font-size:15px;color:var(--rz-background);text-decoration:none;" class="hv-25">Google Ads</a>
-                      <a href={u("/services/google-ads/")} style="padding:9px 12px;margin:0 -12px;border-radius:10px;font-size:15px;color:var(--rz-background);text-decoration:none;" class="hv-25">Meta Ads</a>
-                      <a href={u("/services/google-ads/")} style="padding:9px 12px;margin:0 -12px;border-radius:10px;font-size:15px;color:var(--rz-background);text-decoration:none;" class="hv-25">Local Services Ads</a>
-                    </div>
-                  </div>
-                  <div style="display:flex;flex-direction:column;gap:14px;padding-right:32px;">
-                    <div style="display:flex;align-items:center;gap:10px;"><span style="width:12px;height:12px;border-radius:4px;background:var(--rz-slate);"></span><span style="font-size:11px;letter-spacing:0.22em;font-weight:600;color:var(--rz-slate-dark);">03</span></div>
-                    <a href={u("/services/web-development/")} style="font-family:var(--rz-font-display);font-size:22px;font-weight:600;letter-spacing:-0.01em;line-height:1.15;color:var(--rz-background);text-decoration:none;">Web Services</a>
-                    <p style="margin:0;font-size:13.5px;line-height:1.55;color:rgba(15,15,18,0.62);text-wrap:pretty;">The site every other piece of this points at.</p>
-                    <div style="display:flex;flex-direction:column;margin-top:4px;">
-                      <a href={u("/services/web-development/")} style="padding:9px 12px;margin:0 -12px;border-radius:10px;font-size:15px;color:var(--rz-background);text-decoration:none;" class="hv-25">Web Development</a>
-                      <a href={u("/services/web-development/")} style="padding:9px 12px;margin:0 -12px;border-radius:10px;font-size:15px;color:var(--rz-background);text-decoration:none;" class="hv-25">Web Hosting &amp; Maintenance</a>
-                    </div>
-                  </div>
-                </div>
-                <div style="padding:16px 72px;border-top:1px solid rgba(15,15,18,0.08);display:flex;justify-content:space-between;align-items:center;gap:24px;">
-                  <span style="font-size:13.5px;color:rgba(15,15,18,0.62);">Not sure where to start? We'll tell you which piece is holding you back.</span>
-                  <a href={u("/services/")} style="font-size:14px;font-weight:500;color:var(--rz-purple);text-decoration:none;" class="hv-26">All services →</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="dd" style="position:relative;">
-            <span tabindex="0" aria-haspopup="true" style="display:flex;align-items:center;gap:6px;font-size:15px;font-weight:400;color:var(--rz-background);cursor:pointer;">Industries
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-            </span>
-            <div class="dd-panel">
-              <div style="position:absolute;top:100%;left:-16px;margin-top:14px;background:var(--rz-foreground);border:1px solid rgba(15,15,18,0.10);border-radius:12px;box-shadow:0 18px 40px rgba(15,15,18,0.10);padding:8px;min-width:190px;display:flex;flex-direction:column;">
-                <span style="padding:11px 14px;border-radius:10px;font-size:14.5px;color:var(--rz-background);cursor:pointer;" class="hv-25">Plumbing</span>
-                <span style="padding:11px 14px;border-radius:10px;font-size:14.5px;color:var(--rz-background);cursor:pointer;" class="hv-25">HVAC</span>
-                <span style="padding:11px 14px;border-radius:10px;font-size:14.5px;color:var(--rz-background);cursor:pointer;" class="hv-25">Electrical</span>
-                <span style="padding:11px 14px;border-radius:10px;font-size:14.5px;color:var(--rz-background);cursor:pointer;" class="hv-25">Septic</span>
-                <span style="padding:11px 14px;border-radius:10px;font-size:14.5px;color:var(--rz-background);cursor:pointer;" class="hv-25">Painting</span>
-                <span style="padding:11px 14px;border-radius:10px;font-size:14.5px;color:var(--rz-background);cursor:pointer;" class="hv-25">Landscaping</span>
-                <span style="padding:11px 14px;border-radius:10px;font-size:14.5px;color:var(--rz-background);cursor:pointer;" class="hv-25">Restoration</span>
-              </div>
-            </div>
-          </div>
-
-          <span style="font-size:15px;color:var(--rz-background);cursor:pointer;">Case Studies</span>
-          <a href={u("/about/")} style="font-size:15px;color:var(--rz-background);">About</a>
-          <a href={u("/blog/")} style="font-size:15px;color:var(--rz-background);">Blog</a>
+        <nav aria-label="Main" style="display:flex;align-items:center;gap:32px;margin-left:auto;margin-right:32px;">
+          {sections.map((s) => (
+            <a href={u(`/#${s.id}`)} data-section-link={s.id} style="font-size:15px;color:var(--rz-background);">{s.label}</a>
+          ))}
         </nav>
 
-        <a href={u("/contact/")} style="display:inline-flex;align-items:center;height:44px;padding:0 24px;border-radius:10px;background:var(--rz-purple);color:var(--rz-foreground);font-size:14.5px;font-weight:500;" class="hv-27">Contact</a>
+        <a href={u("/#contact")} data-section-link="contact" style="display:inline-flex;align-items:center;height:44px;padding:0 24px;border-radius:10px;background:var(--rz-purple);color:var(--rz-foreground);font-size:14.5px;font-weight:500;" class="hv-27">Contact</a>
       </div>
     </header>

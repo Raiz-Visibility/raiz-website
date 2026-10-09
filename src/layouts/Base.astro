@@ -59,6 +59,35 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : un
 
     <script>
       import '../scripts/rz-orb-button.js';
+
+      // One-page navigation. Each home section exists twice (desktop + mobile rendition),
+      // so a plain #anchor could hit the hidden copy — scroll to the visible one instead.
+      const visibleSection = (id: string) =>
+        [...document.querySelectorAll<HTMLElement>(`[data-section="${id}"]`)].find((el) => el.offsetParent !== null);
+      const smooth = () => (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth');
+      const closeMobileMenu = () => {
+        document.querySelectorAll<HTMLElement>('.m-menu').forEach((m) => (m.hidden = true));
+        document.querySelectorAll('.m-menu-toggle').forEach((b) => b.setAttribute('aria-expanded', 'false'));
+      };
+
+      document.addEventListener('click', (e) => {
+        const link = (e.target as Element).closest<HTMLAnchorElement>('a[data-section-link]');
+        if (!link) return;
+        const target = visibleSection(link.dataset.sectionLink!);
+        if (!target) return; // not on the home page — let the link navigate to /#section
+        e.preventDefault();
+        closeMobileMenu();
+        target.scrollIntoView({ behavior: smooth(), block: 'start' });
+        history.pushState(null, '', `#${link.dataset.sectionLink}`);
+      });
+
+      // Arriving from another page (or a shared link) with a #section hash.
+      const fromHash = () => {
+        const target = location.hash && visibleSection(location.hash.slice(1));
+        if (target) target.scrollIntoView({ block: 'start' });
+      };
+      window.addEventListener('load', fromHash);
+      window.addEventListener('popstate', fromHash);
     </script>
   </body>
 </html>

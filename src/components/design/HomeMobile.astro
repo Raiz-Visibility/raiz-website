@@ -12,7 +12,7 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
 
     <div style="background:linear-gradient(180deg,#FAFAFA 0%,#E3E4ED 48%,#FAFAFA 82%,#FAFAFA 100%);">
     <!-- mobile what's changed -->
-    <div style="padding:0 16px 56px;display:flex;flex-direction:column;gap:20px;">
+    <div data-section="how-it-works" style="padding:0 16px 56px;display:flex;flex-direction:column;gap:20px;">
       <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">How we get you found</span>
       <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:26px;line-height:1.25;color:var(--rz-background);text-wrap:pretty;">We give AI every reason to name you.</h2>
       <p style="margin:0;font-size:16px;line-height:1.625;color:rgba(15,15,18,0.78);">New customers aren’t finding you, and it’s hard to fix when no one can tell you why. Our process handles the three things AI checks before it recommends a business, so when someone asks who to call, it names you.</p>
@@ -31,7 +31,7 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
     </div>
 
     <!-- mobile evidence -->
-    <div style="padding:56px 16px;display:flex;flex-direction:column;gap:48px;">
+    <div data-section="results" style="padding:56px 16px;display:flex;flex-direction:column;gap:48px;">
 
       <div style="display:flex;flex-direction:column;gap:18px;">
         <div style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">The evidence · Local SEO</div>
@@ -204,7 +204,7 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
     </div>
 
     <!-- mobile services — comet mosaic, stacked -->
-    <div style="padding:56px 16px;display:flex;flex-direction:column;gap:44px;">
+    <div data-section="services" style="padding:56px 16px;display:flex;flex-direction:column;gap:44px;">
       <div style="display:flex;flex-direction:column;gap:14px;">
         <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">How we do it</span>
         <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:32px;line-height:1.15;letter-spacing:-0.02em;color:var(--rz-background);text-wrap:pretty;">None of it works on its own.</h2>
@@ -258,7 +258,7 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
     </div>
 
     <!-- mobile how to get started -->
-    <div style="padding:56px 16px;display:flex;flex-direction:column;gap:40px;">
+    <div data-section="process" style="padding:56px 16px;display:flex;flex-direction:column;gap:40px;">
       <div style="display:flex;flex-direction:column;gap:16px;">
         <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">How to get started</span>
         <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:26px;line-height:1.2;color:var(--rz-background);text-wrap:pretty;">It starts with a call, not a contract.</h2>
@@ -287,7 +287,7 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
     </div>
 
     <!-- mobile about -->
-    <div style="padding:0 16px 56px;display:flex;flex-direction:column;gap:40px;">
+    <div data-section="about" style="padding:0 16px 56px;display:flex;flex-direction:column;gap:40px;">
       <div style="display:flex;flex-direction:column;gap:14px;">
         <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">Who's behind it</span>
         <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:28px;line-height:1.18;letter-spacing:-0.01em;color:var(--rz-background);text-wrap:pretty;">Most agencies sell you a channel. We run the whole loop.</h2>
@@ -322,7 +322,7 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
     </div>
 
     <!-- mobile CTA -->
-    <div style="padding:0 16px 56px;">
+    <div data-section="contact" style="padding:0 16px 56px;">
       <div style="background:var(--rz-gradient-surface);border:1px solid var(--rz-border);border-radius:12px;padding:40px 24px;display:flex;flex-direction:column;align-items:center;gap:24px;">
         <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:24px;line-height:1.28;color:var(--rz-foreground);text-align:center;text-wrap:pretty;">You've seen the coverage and the tracking. Let's look at yours.</h2>
         <rz-orb-button href={u("/contact/")} height="52" padding="30" full>Book a Call</rz-orb-button>

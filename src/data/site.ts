@@ -46,3 +46,12 @@ export const authors: Record<string, { role: string; bio: string; slot: string }
   'Kyle Sabraw': { role: 'Co-Founder', bio: 'Building websites and studying search since 1997, for everyone from local shops to Silicon Valley tech companies. What he loves is what more calls make possible: another hire, an easier payroll, more time at home.', slot: 'raiz-founder-2' },
   'Ryan Maizis': { role: 'Co-Founder', bio: 'Owns the ad accounts and the measurement behind them.', slot: 'raiz-founder-1' },
 };
+
+/** One-page navigation: each entry scrolls to the home section tagged data-section="<id>". */
+export const sections = [
+  { id: 'how-it-works', label: 'How it works' },
+  { id: 'results', label: 'Results' },
+  { id: 'services', label: 'Services' },
+  { id: 'process', label: 'Process' },
+  { id: 'about', label: 'About' },
+];

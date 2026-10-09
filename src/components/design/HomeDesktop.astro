@@ -18,7 +18,7 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
 
     <div class="bleed" style="--bleed:linear-gradient(180deg,#FAFAFA 0%,#E3E4ED 48%,#FAFAFA 82%,#FAFAFA 100%);background:linear-gradient(180deg,#FAFAFA 0%,#E3E4ED 48%,#FAFAFA 82%,#FAFAFA 100%);">
     <!-- 2 · WHAT'S CHANGED -->
-    <section data-screen-label="What's changed" style="padding:0 72px 128px;">
+    <section data-section="how-it-works" data-screen-label="What's changed" style="padding:0 72px 128px;">
       <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center;">
         <div style="grid-column:1 / span 6;display:flex;flex-direction:column;gap:24px;">
           <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);">How we get you found</span>
@@ -47,7 +47,7 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
     </section>
 
     <!-- 3 · EVIDENCE -->
-    <section data-screen-label="Evidence" style="padding:120px 72px;">
+    <section data-section="results" data-screen-label="Evidence" style="padding:120px 72px;">
       <div style="max-width:1320px;margin:0 auto;">
 
         <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center;">
@@ -238,7 +238,7 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
     </section>
 
     <!-- 4 · SERVICES — comet mosaic, four families -->
-    <div style="padding:120px 72px 0;">
+    <div data-section="services" style="padding:120px 72px 0;">
       <div style="max-width:640px;">
         <div style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);margin-bottom:18px;">How we do it</div>
         <h2 style="margin:0 0 18px;font-family:var(--rz-font-display);font-weight:500;font-size:44px;line-height:1.14;letter-spacing:-0.02em;color:var(--rz-background);text-wrap:pretty;">None of it works on its own.</h2>
@@ -322,7 +322,7 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
     </section>
 
     <!-- 5 · HOW TO GET STARTED -->
-    <section data-screen-label="How to get started" style="padding:120px 72px;">
+    <section data-section="process" data-screen-label="How to get started" style="padding:120px 72px;">
       <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:88px;">
 
         <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end;">
@@ -361,7 +361,7 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
     </section>
 
     <!-- 6 · WHO'S BEHIND IT -->
-    <section data-screen-label="Who's behind it" style="padding:0 72px 120px;">
+    <section data-section="about" data-screen-label="Who's behind it" style="padding:0 72px 120px;">
       <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:80px;">
 
         <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:24px;">
@@ -406,7 +406,7 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
     </div>
 
     <!-- 6 · CLOSING CTA -->
-    <section data-screen-label="Closing CTA" style="background:var(--rz-foreground);padding:0 72px 120px;">
+    <section data-section="contact" data-screen-label="Closing CTA" style="background:var(--rz-foreground);padding:0 72px 120px;">
       <div style="max-width:1100px;margin:0 auto;background:var(--rz-gradient-surface);border:1px solid var(--rz-border);border-radius:12px;padding:80px;display:flex;flex-direction:column;align-items:center;gap:32px;">
         <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:32px;line-height:1.25;color:var(--rz-foreground);text-align:center;max-width:640px;text-wrap:pretty;">You've seen the coverage and the tracking. Let's look at yours.</h2>
         <rz-orb-button href={u("/contact/")} height="52" padding="32">Book a Call</rz-orb-button>
