@@ -19,8 +19,8 @@ const uid = `cta-${variant}`;
       <label for={`${uid}-name`}>Your name
         <input id={`${uid}-name`} name="name" autocomplete="name" required />
       </label>
-      <label for={`${uid}-business`}>Business name
-        <input id={`${uid}-business`} name="business" autocomplete="organization" required />
+      <label for={`${uid}-website`}>Website
+        <input id={`${uid}-website`} name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.com" pattern="\S+\.\S+" required />
       </label>
       <label for={`${uid}-email`}>Email
         <input id={`${uid}-email`} name="email" type="email" autocomplete="email" required />
@@ -96,7 +96,7 @@ const uid = `cta-${variant}`;
       });
       if (firstBad) {
         (firstBad as HTMLInputElement).focus();
-        showError('Please add your name, business name and a valid email.');
+        showError('Please add your name, your website and a valid email.');
         return;
       }
 
