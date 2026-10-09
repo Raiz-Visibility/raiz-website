@@ -61,7 +61,7 @@ rz-orb-button[full]:not(:defined) { display: flex; width: 100%; }
 /* ── Blog article body (Markdown) — desktop and mobile type scales from the design ── */
 .prose-d { display: flex; flex-direction: column; gap: 24px; font-size: 18px; line-height: 1.75; color: rgba(15,15,18,0.82); }
 .prose-d > * { margin: 0; text-wrap: pretty; }
-.prose-d h2 { margin: 24px 0 0; font-family: var(--rz-font-display); font-weight: 500; font-size: 32px; line-height: 1.2; letter-spacing: -0.01em; color: var(--rz-background); scroll-margin-top: 32px; }
+.prose-d h2 { margin: 24px 0 0; font-family: var(--rz-font-display); font-weight: 500; font-size: 32px; line-height: 1.2; letter-spacing: -0.01em; color: var(--rz-background); scroll-margin-top: 124px; }
 .prose-d h3 { margin: 16px 0 0; font-family: var(--rz-font-display); font-weight: 500; font-size: 22px; line-height: 1.25; color: var(--rz-background); }
 .prose-d blockquote { margin: 16px 0; padding: 8px 0 8px 28px; border-left: 2px solid var(--rz-gold); font-family: var(--rz-font-display); font-weight: 500; font-size: 28px; line-height: 1.35; color: var(--rz-background); }
 .prose-d blockquote p { margin: 0; }
@@ -97,4 +97,9 @@ rz-orb-button[full]:not(:defined) { display: flex; width: 100%; }
 .ichip:has(input:focus-visible) { outline: 2px solid var(--rz-gold); outline-offset: 2px; }
 
 /* ── One-page section anchors ── */
-[data-section] { scroll-margin-top: 24px; }
+/* Offsets clear the sticky header (desktop ~92px, mobile ~77px). */
+.d-site [data-section] { scroll-margin-top: 108px; }
+.m-site [data-section] { scroll-margin-top: 92px; }
+
+/* ── Sticky desktop header: carry its background and hairline past the 1440 frame ── */
+.sticky-header::before { content: ""; position: absolute; inset: 0 -100vw -1px; z-index: -1; background: inherit; border-bottom: inherit; }

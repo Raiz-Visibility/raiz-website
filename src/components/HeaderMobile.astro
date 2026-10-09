@@ -2,7 +2,7 @@
 import { sections } from '../data/site';
 const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
 ---
-<div class="m-header" style="position:relative;z-index:20;">
+<div class="m-header" style="position:sticky;top:0;z-index:50;">
   <div style="background:var(--rz-foreground);border-bottom:1px solid rgba(15,15,18,0.10);padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
     <a href={u('/')} aria-label="Raiz Visibility home" style="display:flex;flex-direction:column;gap:4px;width:96px;">
       <span style="font-family:var(--rz-font-display);font-weight:700;font-size:25px;line-height:1;letter-spacing:-0.01em;background:var(--rz-gradient-brand-on-light);-webkit-background-clip:text;background-clip:text;color:transparent;">RAIZ</span>
