@@ -68,6 +68,14 @@
       this._label = root.querySelector('.label');
       this._ro = new ResizeObserver(() => this._fit());
       new ResizeObserver(() => this._widen()).observe(this._label);
+      // <rz-orb-button submit> acts as the submit button of its enclosing <form>.
+      const submit = (e) => {
+        if (!this.hasAttribute('submit')) return;
+        e.preventDefault();
+        this.closest('form')?.requestSubmit();
+      };
+      this._a.addEventListener('click', submit);
+      this._a.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') submit(e); });
     }
     connectedCallback() { this._sync(); this._ro.observe(this._a); }
     disconnectedCallback() { this._ro.disconnect(); }
@@ -76,6 +84,7 @@
       const href = this.getAttribute('href');
       if (href) this._a.setAttribute('href', href); else this._a.removeAttribute('href');
       this._a.setAttribute('role', 'button');
+      if (this.hasAttribute('submit')) this._a.setAttribute('tabindex', '0'); // focusable without an href
       this._a.style.setProperty('--h', (this.getAttribute('height') || 52) + 'px');
       this._widen();
     }

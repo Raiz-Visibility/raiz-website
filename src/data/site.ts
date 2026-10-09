@@ -55,3 +55,7 @@ export const sections = [
   { id: 'process', label: 'Process' },
   { id: 'about', label: 'About' },
 ];
+
+/** Web3Forms access key (public by design — it only allows sending to the inbox it was created for). */
+export const WEB3FORMS_KEY = '63c98486-8310-49f9-9c41-106750996f7c';
+export const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';

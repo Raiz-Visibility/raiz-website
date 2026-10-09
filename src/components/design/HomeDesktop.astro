@@ -1,5 +1,6 @@
 ---
 import ImageSlot from '../ImageSlot.astro';
+import CtaForm from '../CtaForm.astro';
 const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
 ---
 <!-- 1 · HERO -->
@@ -409,7 +410,6 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
     <section data-section="contact" data-screen-label="Closing CTA" style="background:var(--rz-foreground);padding:0 72px 120px;">
       <div style="max-width:1100px;margin:0 auto;background:var(--rz-gradient-surface);border:1px solid var(--rz-border);border-radius:12px;padding:80px;display:flex;flex-direction:column;align-items:center;gap:32px;">
         <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:32px;line-height:1.25;color:var(--rz-foreground);text-align:center;max-width:640px;text-wrap:pretty;">You've seen the coverage and the tracking. Let's look at yours.</h2>
-        <rz-orb-button href={u("/contact/")} height="52" padding="32">Book a Call</rz-orb-button>
-        <span style="font-size:14px;color:var(--rz-purple-light);visibility:hidden;">Or get a free read on your own AI visibility →</span>
+        <CtaForm variant="desktop" />
       </div>
     </section>

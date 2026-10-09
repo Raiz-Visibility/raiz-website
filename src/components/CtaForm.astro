@@ -1,0 +1,118 @@
+---
+// Lead form inside the home page's closing "Let's look at yours" box.
+// Submits to Web3Forms; the success and error states are handled in the script below.
+import { WEB3FORMS_KEY, WEB3FORMS_ENDPOINT } from '../data/site';
+
+interface Props { variant: 'desktop' | 'mobile' }
+const { variant } = Astro.props;
+const d = variant === 'desktop';
+const uid = `cta-${variant}`;
+---
+<div class={`cta-form-wrap cta-${variant}`} style={`width:100%;max-width:${d ? '760px' : 'none'};`}>
+  <form class="cta-form" action={WEB3FORMS_ENDPOINT} method="post" novalidate>
+    <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+    <input type="hidden" name="subject" value="New enquiry from raizvisibility.com" />
+    <input type="hidden" name="from_name" value="Raiz Visibility website" />
+    <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none;" />
+
+    <div class="cta-grid">
+      <label for={`${uid}-name`}>Your name
+        <input id={`${uid}-name`} name="name" autocomplete="name" required />
+      </label>
+      <label for={`${uid}-business`}>Business name
+        <input id={`${uid}-business`} name="business" autocomplete="organization" required />
+      </label>
+      <label for={`${uid}-email`}>Email
+        <input id={`${uid}-email`} name="email" type="email" autocomplete="email" required />
+      </label>
+      <label for={`${uid}-phone`}><span>Phone <span class="cta-optional">(optional)</span></span>
+        <input id={`${uid}-phone`} name="phone" type="tel" autocomplete="tel" />
+      </label>
+      <label for={`${uid}-message`} class="cta-full"><span>Anything we should know? <span class="cta-optional">(optional)</span></span>
+        <textarea id={`${uid}-message`} name="message" rows="3" placeholder="Where you serve, what's working, what isn't."></textarea>
+      </label>
+    </div>
+
+    <p class="cta-error" role="alert" hidden></p>
+
+    <div class="cta-actions">
+      <rz-orb-button submit height="52" padding={d ? '32' : '30'} {...(d ? {} : { full: '' })}>Book a Call</rz-orb-button>
+      <span class="cta-note">We reply within one business day.</span>
+    </div>
+  </form>
+
+  <div class="cta-sent" role="status" hidden>
+    <span class="cta-sent-mark"></span>
+    <p class="cta-sent-title">Got it. We'll be in touch within one business day.</p>
+    <p class="cta-sent-body">We'll run a first scan of your area before the call, so the thirty minutes go further.</p>
+  </div>
+</div>
+
+<style is:global>
+  .cta-form { display: flex; flex-direction: column; gap: 24px; }
+  .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; }
+  .cta-mobile .cta-grid { grid-template-columns: 1fr; gap: 14px; }
+  .cta-grid label { display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 500; color: var(--rz-muted-foreground); text-align: left; }
+  .cta-grid .cta-full { grid-column: 1 / -1; }
+  .cta-optional { font-weight: 400; opacity: 0.7; }
+  .cta-grid input, .cta-grid textarea {
+    width: 100%; padding: 0 14px; height: 48px; border-radius: 10px;
+    border: 1px solid var(--rz-border); background: var(--rz-muted); color: var(--rz-foreground);
+    font: 400 15px/1.5 var(--rz-font-body); transition: border-color 160ms ease;
+  }
+  .cta-mobile .cta-grid input, .cta-mobile .cta-grid textarea { font-size: 16px; } /* no iOS zoom on focus */
+  .cta-grid textarea { height: auto; padding: 12px 14px; resize: vertical; min-height: 96px; }
+  .cta-grid input::placeholder, .cta-grid textarea::placeholder { color: rgba(156,163,175,0.6); }
+  .cta-grid input:focus, .cta-grid textarea:focus { outline: none; border-color: var(--rz-gold); }
+  .cta-grid input[aria-invalid="true"] { border-color: #C0605E; }
+  .cta-actions { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: 4px; }
+  .cta-note { font-size: 13px; color: var(--rz-muted-foreground); }
+  .cta-error { margin: 0; font-size: 14px; color: #E7A3A1; text-align: center; }
+  .cta-sent { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; padding: 8px 0; }
+  .cta-sent-mark { width: 14px; height: 14px; border-radius: 4px; background: var(--rz-gold); }
+  .cta-sent-title { margin: 0; font-family: var(--rz-font-display); font-weight: 500; font-size: 24px; line-height: 1.3; color: var(--rz-foreground); }
+  .cta-mobile .cta-sent-title { font-size: 20px; }
+  .cta-sent-body { margin: 0; font-size: 15px; line-height: 1.6; color: var(--rz-muted-foreground); max-width: 460px; }
+  .cta-form[aria-busy="true"] rz-orb-button { opacity: 0.6; pointer-events: none; }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('form.cta-form').forEach((form) => {
+    if (form.dataset.bound) return;
+    form.dataset.bound = '1';
+    const wrap = form.closest<HTMLElement>('.cta-form-wrap')!;
+    const sent = wrap.querySelector<HTMLElement>('.cta-sent')!;
+    const error = form.querySelector<HTMLElement>('.cta-error')!;
+    const showError = (msg: string) => { error.textContent = msg; error.hidden = false; };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      error.hidden = true;
+      let firstBad: HTMLInputElement | null = null;
+      form.querySelectorAll<HTMLInputElement>('input[required]').forEach((el) => {
+        const bad = !el.checkValidity();
+        el.setAttribute('aria-invalid', String(bad));
+        if (bad && !firstBad) firstBad = el;
+      });
+      if (firstBad) {
+        (firstBad as HTMLInputElement).focus();
+        showError('Please add your name, business name and a valid email.');
+        return;
+      }
+
+      form.setAttribute('aria-busy', 'true');
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || json.success === false) throw new Error(json.message || String(res.status));
+        form.reset();
+        form.hidden = true;
+        sent.hidden = false;
+      } catch {
+        showError('That didn’t send. Please try again, or email hello@raizvisibility.com.');
+      } finally {
+        form.removeAttribute('aria-busy');
+      }
+    });
+  });
+</script>
