@@ -25,7 +25,7 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
           <h1 style="margin:0;font-family:var(--rz-font-display);font-weight:700;font-size:72px;line-height:1.05;letter-spacing:-0.02em;color:var(--rz-background);max-width:1000px;text-wrap:pretty;">{s.hero.title}</h1>
           <p style="margin:0;font-size:19px;line-height:1.6;color:rgba(15,15,18,0.70);max-width:600px;text-wrap:pretty;">{s.hero.lead}</p>
           <div style="display:flex;align-items:center;gap:32px;">
-            <rz-orb-button href={u("/contact/")} height="52" padding="32">Book a Call</rz-orb-button>
+            <rz-orb-button href={u("/#contact")} data-section-link="contact" height="52" padding="32">Contact Us</rz-orb-button>
             <a href="#results" style="font-size:15px;font-weight:500;color:var(--rz-background);">See the results ↓</a>
           </div>
         </div>
@@ -138,6 +138,6 @@ const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
     <section data-screen-label="Closing CTA" style="padding:0 72px 120px;">
       <div style="max-width:1100px;margin:0 auto;background:var(--rz-gradient-surface);border:1px solid var(--rz-border);border-radius:12px;padding:80px;display:flex;flex-direction:column;align-items:center;gap:32px;">
         <h2 style="margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:32px;line-height:1.25;color:var(--rz-foreground);text-align:center;max-width:640px;text-wrap:pretty;">{s.cta}</h2>
-        <rz-orb-button href={u("/contact/")} height="52" padding="32">Book a Call</rz-orb-button>
+        <rz-orb-button href={u("/#contact")} data-section-link="contact" height="52" padding="32">Contact Us</rz-orb-button>
       </div>
     </section>

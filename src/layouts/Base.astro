@@ -84,7 +84,10 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : un
       };
 
       document.addEventListener('click', (e) => {
-        const link = (e.target as Element).closest<HTMLAnchorElement>('a[data-section-link]');
+        // composedPath() so clicks inside <rz-orb-button>'s shadow DOM still find the host's data-section-link.
+        const link = e.composedPath().find(
+          (el): el is HTMLElement => el instanceof HTMLElement && el.hasAttribute('data-section-link'),
+        );
         if (!link) return;
         const target = visibleSection(link.dataset.sectionLink!);
         if (!target) return; // not on the home page — let the link navigate to /#section
