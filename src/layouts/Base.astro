@@ -36,6 +36,19 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : un
         fit();
         window.addEventListener('resize', fit);
       })();
+      // Compact the sticky header once the page is scrolled. Two thresholds stop it
+      // flickering when the shrinking header itself nudges the scroll position.
+      (function () {
+        var r = document.documentElement;
+        function check() {
+          var y = window.scrollY;
+          if (y > 48) r.classList.add('is-scrolled');
+          else if (y < 8) r.classList.remove('is-scrolled');
+        }
+        check();
+        window.addEventListener('scroll', check, { passive: true });
+        window.addEventListener('DOMContentLoaded', check);
+      })();
     </script>
   </head>
   <body>

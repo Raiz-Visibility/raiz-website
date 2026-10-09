@@ -61,7 +61,7 @@ rz-orb-button[full]:not(:defined) { display: flex; width: 100%; }
 /* ── Blog article body (Markdown) — desktop and mobile type scales from the design ── */
 .prose-d { display: flex; flex-direction: column; gap: 24px; font-size: 18px; line-height: 1.75; color: rgba(15,15,18,0.82); }
 .prose-d > * { margin: 0; text-wrap: pretty; }
-.prose-d h2 { margin: 24px 0 0; font-family: var(--rz-font-display); font-weight: 500; font-size: 32px; line-height: 1.2; letter-spacing: -0.01em; color: var(--rz-background); scroll-margin-top: 124px; }
+.prose-d h2 { margin: 24px 0 0; font-family: var(--rz-font-display); font-weight: 500; font-size: 32px; line-height: 1.2; letter-spacing: -0.01em; color: var(--rz-background); scroll-margin-top: 88px; }
 .prose-d h3 { margin: 16px 0 0; font-family: var(--rz-font-display); font-weight: 500; font-size: 22px; line-height: 1.25; color: var(--rz-background); }
 .prose-d blockquote { margin: 16px 0; padding: 8px 0 8px 28px; border-left: 2px solid var(--rz-gold); font-family: var(--rz-font-display); font-weight: 500; font-size: 28px; line-height: 1.35; color: var(--rz-background); }
 .prose-d blockquote p { margin: 0; }
@@ -97,9 +97,23 @@ rz-orb-button[full]:not(:defined) { display: flex; width: 100%; }
 .ichip:has(input:focus-visible) { outline: 2px solid var(--rz-gold); outline-offset: 2px; }
 
 /* ── One-page section anchors ── */
-/* Offsets clear the sticky header (desktop ~92px, mobile ~77px). */
-.d-site [data-section] { scroll-margin-top: 108px; }
-.m-site [data-section] { scroll-margin-top: 92px; }
+/* Offsets clear the compact sticky header (desktop ~63px, mobile ~53px). */
+.d-site [data-section] { scroll-margin-top: 80px; }
+.m-site [data-section] { scroll-margin-top: 68px; }
 
 /* ── Sticky desktop header: carry its background and hairline past the 1440 frame ── */
 .sticky-header::before { content: ""; position: absolute; inset: 0 -100vw -1px; z-index: -1; background: inherit; border-bottom: inherit; }
+
+/* ── Compact header once the page is scrolled (html.is-scrolled, set in Base.astro) ── */
+.hdr-bar, .hdr-logo, .hdr-word, .hdr-sub, .hdr-cta, .hdr-icon { transition: padding 200ms ease, font-size 200ms ease, height 200ms ease, width 200ms ease, gap 200ms ease; }
+.is-scrolled .d-site .hdr-bar { padding-top: 12px !important; padding-bottom: 12px !important; }
+.is-scrolled .d-site .hdr-logo { gap: 4px !important; width: 104px !important; }
+.is-scrolled .d-site .hdr-word { font-size: 26px !important; }
+.is-scrolled .d-site .hdr-sub { font-size: 6px !important; padding-left: 3px !important; }
+.is-scrolled .d-site .hdr-cta { height: 38px !important; }
+.is-scrolled .m-site .hdr-bar { padding-top: 8px !important; padding-bottom: 8px !important; }
+.is-scrolled .m-site .hdr-word { font-size: 21px !important; }
+.is-scrolled .m-site .hdr-sub { font-size: 5px !important; }
+.is-scrolled .m-site .hdr-cta { height: 36px !important; }
+.is-scrolled .m-site .hdr-icon { height: 36px !important; }
+@media (prefers-reduced-motion: reduce) { .hdr-bar, .hdr-logo, .hdr-word, .hdr-sub, .hdr-cta, .hdr-icon { transition: none; } }
