@@ -43,6 +43,6 @@ export const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
 
 /** Post authors — `slot` is the ImageSlot id of their portrait (public/images/<slot>.jpg). */
 export const authors: Record<string, { role: string; bio: string; slot: string }> = {
-  'Kyle Sabraw': { role: 'Co-Founder', bio: 'Building websites and studying search since 1997, for everyone from local shops to Silicon Valley tech companies. He owns the sites, the technical work, and how you show up when AI answers.', slot: 'raiz-founder-2' },
+  'Kyle Sabraw': { role: 'Co-Founder', bio: 'Building websites and studying search since 1997, for everyone from local shops to Silicon Valley tech companies. What he loves is what more calls make possible: another hire, an easier payroll, more time at home.', slot: 'raiz-founder-2' },
   'Ryan Maizis': { role: 'Co-Founder', bio: 'Owns the ad accounts and the measurement behind them.', slot: 'raiz-founder-1' },
 };
