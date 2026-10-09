@@ -1,57 +1,15 @@
----
-const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
----
 <footer class="bleed" style="--bleed:linear-gradient(var(--rz-background),var(--rz-background));background:var(--rz-background);padding:72px 72px 40px;">
       <div style="max-width:1320px;margin:0 auto;">
-        <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:24px;">
-          <div style="grid-column:1 / span 4;display:flex;flex-direction:column;gap:16px;">
-            <div style="display:flex;flex-direction:column;gap:5px;width:130px;">
-              <span style="font-family:var(--rz-font-display);font-weight:700;font-size:34px;line-height:1;letter-spacing:-0.01em;background:var(--rz-gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent;">RAIZ</span>
-              <span style="font-family:var(--rz-font-display);font-weight:400;font-size:8px;letter-spacing:0.5em;color:var(--rz-foreground);padding-left:4px;">VISIBILITY</span>
-            </div>
-            <span style="font-size:13px;line-height:1.55;color:var(--rz-muted-foreground);max-width:280px;">Search and AI visibility for home services businesses.</span>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;flex-direction:column;gap:5px;width:130px;">
+            <span style="font-family:var(--rz-font-display);font-weight:700;font-size:34px;line-height:1;letter-spacing:-0.01em;background:var(--rz-gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent;">RAIZ</span>
+            <span style="font-family:var(--rz-font-display);font-weight:400;font-size:8px;letter-spacing:0.5em;color:var(--rz-foreground);padding-left:4px;">VISIBILITY</span>
           </div>
-
-          <div style="grid-column:6 / span 2;display:flex;flex-direction:column;gap:14px;">
-            <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate);">Services</span>
-            <a href={u("/services/local-seo/")} style="font-size:13.5px;color:var(--rz-muted-foreground);" class="hv-28">Local SEO</a>
-            <span style="font-size:13.5px;color:var(--rz-muted-foreground);cursor:pointer;" class="hv-28">AI Visibility</span>
-          </div>
-
-          <div style="grid-column:8 / span 2;display:flex;flex-direction:column;gap:14px;">
-            <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate);">Industries</span>
-            <span style="font-size:13.5px;color:var(--rz-muted-foreground);cursor:pointer;" class="hv-28">Plumbing</span>
-            <span style="font-size:13.5px;color:var(--rz-muted-foreground);cursor:pointer;" class="hv-28">HVAC</span>
-            <span style="font-size:13.5px;color:var(--rz-muted-foreground);cursor:pointer;" class="hv-28">Electrical</span>
-            <span style="font-size:13.5px;color:var(--rz-muted-foreground);cursor:pointer;" class="hv-28">Septic</span>
-            <span style="font-size:13.5px;color:var(--rz-muted-foreground);cursor:pointer;" class="hv-28">Painting</span>
-          </div>
-
-          <div style="grid-column:10 / span 3;display:flex;flex-direction:column;gap:14px;">
-            <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate);">Company</span>
-            <span style="font-size:13.5px;color:var(--rz-muted-foreground);cursor:pointer;" class="hv-28">Case Studies</span>
-            <a href={u("/about/")} style="font-size:13.5px;color:var(--rz-muted-foreground);" class="hv-28">About</a>
-            <a href={u("/#contact")} data-section-link="contact" style="font-size:13.5px;color:var(--rz-muted-foreground);" class="hv-28">Contact</a>
-            <a href={u("/blog/")} style="font-size:13.5px;color:var(--rz-muted-foreground);" class="hv-28">Blog</a>
-          </div>
+          <span style="font-size:13px;line-height:1.55;color:var(--rz-muted-foreground);max-width:280px;">Search and AI visibility for home services businesses.</span>
         </div>
 
-        <div style="margin-top:48px;padding-top:32px;border-top:1px solid rgba(15,15,18,0.10);display:flex;align-items:baseline;gap:32px;flex-wrap:wrap;">
-          <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate);width:130px;flex:0 0 auto;">Locations</span>
-          <span style="font-size:13.5px;color:var(--rz-muted-foreground);cursor:pointer;" class="hv-28">All Locations</span>
-          <span style="font-size:13.5px;color:var(--rz-muted-foreground);">[City, ST]</span>
-          <span style="font-size:13.5px;color:var(--rz-muted-foreground);">[City, ST]</span>
-          <span style="font-size:13.5px;color:var(--rz-muted-foreground);">[City, ST]</span>
-          <span style="font-size:13.5px;color:var(--rz-muted-foreground);">[City, ST]</span>
-          <span style="font-size:12px;color:var(--rz-slate-dark);">City list to be confirmed</span>
-        </div>
-
-        <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(15,15,18,0.10);display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;">
-          <div style="display:flex;gap:24px;">
-            <span style="font-size:13px;color:var(--rz-muted-foreground);">© 2026 Raiz Visibility</span>
-            <span style="font-size:13px;color:var(--rz-muted-foreground);cursor:pointer;" class="hv-28">Privacy Policy</span>
-            <span style="font-size:13px;color:var(--rz-muted-foreground);cursor:pointer;" class="hv-28">Terms</span>
-          </div>
+        <div style="margin-top:48px;padding-top:24px;border-top:1px solid rgba(15,15,18,0.10);display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+          <span style="font-size:13px;color:var(--rz-muted-foreground);">© 2026 Raiz Visibility</span>
           <span style="font-size:13px;color:var(--rz-muted-foreground);">Amplify Your Visibility.</span>
         </div>
       </div>
