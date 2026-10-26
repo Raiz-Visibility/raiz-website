@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import PrivacyNotice from '../components/PrivacyNotice.astro';
+---
+<Base title="Privacy Notice" description="What Raiz Visibility collects through this website, why, and how long we keep it.">
+  <section slot="desktop" style="padding:120px 72px 128px;">
+    <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:32px;">
+      <h1 style="margin:0;font-family:var(--rz-font-display);font-weight:700;font-size:56px;line-height:1.05;letter-spacing:-0.02em;color:var(--rz-background);">Privacy Notice</h1>
+      <div class="prose-d"><PrivacyNotice /></div>
+    </div>
+  </section>
+  <div slot="mobile">
+    <h1 style="margin:0;padding:48px 16px 24px;font-family:var(--rz-font-display);font-weight:700;font-size:36px;line-height:1.08;letter-spacing:-0.02em;color:var(--rz-background);">Privacy Notice</h1>
+    <div class="prose-m"><PrivacyNotice /></div>
+  </div>
+</Base>
