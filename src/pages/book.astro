@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Calendly event for the booking page.
+const CALENDLY_URL = 'https://calendly.com/ryan-maiziss/ai-marketing-review?hide_event_type_details=1&hide_gdpr_banner=1';
+
+const steps = [
+  'We look at your site, your map listing, and what AI says about you today.',
+  'You see where you stand, and the numbers we’d start from.',
+  'You leave with the first things we’d change, whether you hire us or not.',
+];
+---
+<Base title="Book an AI marketing review" description="Book a thirty-minute AI marketing review with Raiz Visibility. We look at your site, your map listing, and what AI says about you today.">
+  <section slot="desktop" style="padding:120px 72px 128px;">
+    <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start;">
+      <div style="grid-column:1 / span 5;display:flex;flex-direction:column;gap:28px;position:sticky;top:96px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="width:14px;height:14px;border-radius:4px;background:var(--rz-gold);"></span>
+          <h1 style="margin:0;font-family:var(--rz-font-body);font-size:11px;font-weight:600;line-height:1.4;letter-spacing:0.22em;text-transform:uppercase;color:var(--rz-slate-dark);">Book an AI marketing review</h1>
+        </div>
+        <p style="margin:0;font-family:var(--rz-font-display);font-weight:700;font-size:56px;line-height:1.05;letter-spacing:-0.02em;color:var(--rz-background);text-wrap:pretty;">Thirty minutes. A clear read on where you stand.</p>
+        <p style="margin:0;font-size:18px;line-height:1.6;color:rgba(15,15,18,0.70);max-width:460px;text-wrap:pretty;">Pick a time that works. It’s a conversation, not a pitch, and there’s no contract.</p>
+        <div style="display:flex;flex-direction:column;margin-top:8px;max-width:460px;">
+          <span style="font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--rz-slate-dark);margin-bottom:8px;">On the call</span>
+          {steps.map((step, i) => (
+            <div style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid rgba(15,15,18,0.10);">
+              <span style="font-size:11px;font-weight:600;letter-spacing:0.18em;color:var(--rz-slate-dark);padding-top:4px;">{String(i + 1).padStart(2, '0')}</span>
+              <p style="margin:0;font-size:16px;line-height:1.55;color:var(--rz-background);">{step}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div style="grid-column:7 / span 6;background:#FFFFFF;border:1px solid rgba(15,15,18,0.08);border-radius:16px;overflow:hidden;box-shadow:0 10px 24px rgba(15,15,18,0.08);">
+        <div class="book-calendar" data-url={CALENDLY_URL} style="min-width:320px;height:700px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <div slot="mobile" style="padding:48px 16px 56px;display:flex;flex-direction:column;gap:20px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="width:12px;height:12px;border-radius:4px;background:var(--rz-gold);"></span>
+      <h1 style="margin:0;font-family:var(--rz-font-body);font-size:11px;font-weight:600;line-height:1.4;letter-spacing:0.2em;text-transform:uppercase;color:var(--rz-slate-dark);">Book an AI marketing review</h1>
+    </div>
+    <p style="margin:0;font-family:var(--rz-font-display);font-weight:700;font-size:34px;line-height:1.08;letter-spacing:-0.02em;color:var(--rz-background);text-wrap:pretty;">Thirty minutes. A clear read on where you stand.</p>
+    <p style="margin:0;font-size:16px;line-height:1.6;color:rgba(15,15,18,0.70);text-wrap:pretty;">Pick a time that works. It’s a conversation, not a pitch, and there’s no contract.</p>
+    <div style="margin:8px -16px 0;background:#FFFFFF;border-top:1px solid rgba(15,15,18,0.08);border-bottom:1px solid rgba(15,15,18,0.08);">
+      <div class="book-calendar" data-url={CALENDLY_URL} style="min-width:320px;height:760px;"></div>
+    </div>
+  </div>
+</Base>
+
+<script is:inline>
+  // Load Calendly once, then start only the calendar in the visible (desktop or mobile) layout,
+  // so the booking widget isn't loaded twice. Starts the other one if the layout switches.
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'https://assets.calendly.com/assets/external/widget.js';
+    s.async = true;
+    s.onload = initVisible;
+    document.head.appendChild(s);
+
+    function initVisible() {
+      if (!window.Calendly) return;
+      document.querySelectorAll('.book-calendar').forEach(function (el) {
+        if (el.dataset.started || el.offsetParent === null) return;
+        el.dataset.started = '1';
+        window.Calendly.initInlineWidget({ url: el.dataset.url, parentElement: el });
+      });
+    }
+    window.matchMedia('(max-width: 1023.98px)').addEventListener('change', initVisible);
+  })();
+</script>
