@@ -1,0 +1,169 @@
+---
+import Base from '../layouts/Base.astro';
+import FreeReportDesktop from '../components/design/FreeReportDesktop.astro';
+import FreeReportMobile from '../components/design/FreeReportMobile.astro';
+---
+<Base title="Free Local Visibility Report" description="Get a free, plain-English plan for showing up in Google Maps, AI Overviews and ChatGPT. Enter your website and we'll email you your report.">
+  <FreeReportDesktop slot="desktop" />
+  <FreeReportMobile slot="mobile" />
+</Base>
+
+<script>
+  // Posts the form as JSON to PUBLIC_LEAD_REPORT_ENDPOINT (the platform API's
+  // POST /public/lead-report). The page renders the form twice (desktop and
+  // mobile); each copy gets its own Cloudflare Turnstile widget, rendered only
+  // once its copy is visible. Tokens are single-use, so the widget is reset
+  // after every attempt.
+  type Turnstile = {
+    render: (el: HTMLElement, opts: Record<string, unknown>) => string;
+    reset: (id: string) => void;
+    getResponse: (id: string) => string | undefined;
+  };
+  const w = window as unknown as { turnstile?: Turnstile; onRzTurnstile?: () => void };
+  const CONTACT = 'hello@raizvisibility.com';
+
+  const MESSAGES: Record<string, string> = {
+    missing_website: 'Please enter your website.',
+    invalid_website: "That website address doesn't look right. Try something like yourbusiness.com.",
+    missing_business_name: 'Please enter your business name.',
+    invalid_business_name: 'Please shorten the business name.',
+    missing_city: 'Please enter your city.',
+    invalid_city: 'Please shorten the city.',
+    missing_first_name: 'Please enter your first name.',
+    invalid_first_name: 'Please shorten your first name.',
+    missing_email: 'Please enter your email address.',
+    invalid_email: "That email address doesn't look right. Please check it.",
+    invalid_services: 'Please shorten the services list.',
+    bot_check_failed: "The security check didn't go through. Please try again.",
+    rate_limited: "You've asked for several reports already. Please try again tomorrow.",
+  };
+  const UNAVAILABLE = `Free reports aren't available right now. Please try again later, or email us at ${CONTACT}.`;
+
+  const SENT = {
+    queued: {
+      title: "We're building your report.",
+      body: "It usually arrives within 10 minutes. If you don't see it, check your spam folder.",
+    },
+    waitlisted: {
+      title: "We've hit today's limit for free reports.",
+      body: "Your request is saved. We'll build your report and email it to you tomorrow.",
+    },
+  };
+
+  const forms = [...document.querySelectorAll<HTMLFormElement>('form.lead-report-form')];
+  const widgets = new Map<HTMLFormElement, string>();
+  const sitekey = forms[0]?.dataset.sitekey || '';
+  const endpoint = forms[0]?.dataset.endpoint || '';
+
+  function renderVisibleWidgets() {
+    const ts = w.turnstile;
+    if (!ts) return;
+    for (const form of forms) {
+      if (widgets.has(form) || form.offsetParent === null) continue;
+      const box = form.querySelector<HTMLElement>('[data-turnstile]');
+      if (!box) continue;
+      widgets.set(form, ts.render(box, { sitekey, action: 'lead_report', appearance: 'interaction-only' }));
+    }
+  }
+
+  if (endpoint && sitekey) {
+    w.onRzTurnstile = renderVisibleWidgets;
+    const s = document.createElement('script');
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onRzTurnstile';
+    s.async = true;
+    s.defer = true;
+    document.head.appendChild(s);
+    let t: number | undefined;
+    window.addEventListener('resize', () => {
+      window.clearTimeout(t);
+      t = window.setTimeout(renderVisibleWidgets, 200);
+    });
+  }
+
+  for (const form of forms) {
+    const root = form.closest<HTMLElement>('[data-lead-root]')!;
+    const formPanel = root.querySelector<HTMLElement>('[data-form-panel]')!;
+    const sentPanel = root.querySelector<HTMLElement>('[data-sent-panel]')!;
+    const errorBox = form.querySelector<HTMLElement>('[data-form-error]')!;
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+    const buttonLabel = button.textContent;
+
+    const showError = (msg: string) => {
+      errorBox.textContent = msg;
+      errorBox.hidden = false;
+    };
+    const showSent = (kind: 'queued' | 'waitlisted') => {
+      root.querySelector('[data-sent-title]')!.textContent = SENT[kind].title;
+      root.querySelector('[data-sent-body]')!.textContent = SENT[kind].body;
+      formPanel.hidden = true;
+      sentPanel.hidden = false;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.hidden = true;
+      if (!endpoint || !sitekey) return;
+
+      const data = new FormData(form);
+      const text = (k: string) => String(data.get(k) || '').trim();
+      for (const k of ['website', 'business_name', 'city', 'first_name', 'email']) {
+        if (!text(k)) {
+          showError(MESSAGES[`missing_${k}`]);
+          form.querySelector<HTMLInputElement>(`[name="${k}"]`)?.focus();
+          return;
+        }
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text('email'))) {
+        showError(MESSAGES.invalid_email);
+        return;
+      }
+
+      const widget = widgets.get(form);
+      const token = widget !== undefined ? w.turnstile?.getResponse(widget) : undefined;
+      if (!token) {
+        showError('Please wait a moment for the security check to finish, then try again.');
+        renderVisibleWidgets();
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            website: text('website'),
+            business_name: text('business_name'),
+            city: text('city'),
+            first_name: text('first_name'),
+            email: text('email'),
+            services: text('services') || null,
+            marketing_consent: data.get('marketing_consent') === 'on',
+            turnstile_token: token,
+            fax: text('fax') || null,
+          }),
+        });
+        const body = await res.json().catch(() => ({}));
+        if (res.ok) {
+          form.reset();
+          showSent(body.status === 'waitlisted' ? 'waitlisted' : 'queued');
+          return;
+        }
+        const code = typeof body.detail === 'string' ? body.detail : '';
+        showError(MESSAGES[code] || (res.status >= 500 ? UNAVAILABLE : `Sorry, that didn't go through. Please try again, or email us at ${CONTACT}.`));
+      } catch {
+        showError(`We couldn't reach our server. Please try again, or email us at ${CONTACT}.`);
+      } finally {
+        button.disabled = false;
+        button.textContent = buttonLabel;
+        if (widget !== undefined) w.turnstile?.reset(widget);
+      }
+    });
+
+    root.querySelector('[data-reset]')?.addEventListener('click', () => {
+      sentPanel.hidden = true;
+      formPanel.hidden = false;
+    });
+  }
+</script>

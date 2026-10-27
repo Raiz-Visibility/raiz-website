@@ -1,0 +1,91 @@
+---
+// The Free Local Visibility Report form. Rendered once in the desktop body and
+// once in the mobile body, like every form on the site; the page script
+// (free-visibility-report.astro) wires both. It posts JSON to
+// PUBLIC_LEAD_REPORT_ENDPOINT (the platform API's POST /public/lead-report).
+// With no endpoint or no Turnstile site key the fields are disabled and a
+// "coming soon" note shows instead of a submit that could only fail.
+interface Props {
+  variant: 'd' | 'm';
+}
+const { variant } = Astro.props;
+const endpoint = (import.meta.env.PUBLIC_LEAD_REPORT_ENDPOINT as string | undefined) || '';
+const siteKey = (import.meta.env.PUBLIC_TURNSTILE_SITE_KEY as string | undefined) || '';
+const ready = Boolean(endpoint && siteKey);
+const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
+
+const fs = variant === 'd' ? '15px' : '16px';
+const input = `height:48px;padding:0 14px;border-radius:10px;border:1px solid rgba(15,15,18,0.14);background:var(--rz-foreground);font-size:${fs};color:var(--rz-background);width:100%;`;
+const label = 'display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:500;color:var(--rz-background);';
+const hint = 'font-size:12px;font-weight:400;color:rgba(15,15,18,0.55);';
+const row = variant === 'd' ? 'display:grid;grid-template-columns:1fr 1fr;gap:16px;' : 'display:flex;flex-direction:column;gap:16px;';
+---
+<div data-lead-root>
+  <div data-form-panel>
+    <form
+      class="lead-report-form"
+      data-endpoint={endpoint}
+      data-sitekey={siteKey}
+      novalidate
+      style={`display:flex;flex-direction:column;gap:${variant === 'd' ? '20px' : '16px'};`}
+    >
+      {!ready && (
+        <p style="margin:0;padding:12px 14px;border-radius:10px;background:rgba(212,165,74,0.14);font-size:14px;line-height:1.5;color:var(--rz-background);">
+          Free reports are coming soon. In the meantime, <a href={u('/#contact')}>contact us</a> and we'll take a look for you.
+        </p>
+      )}
+      <fieldset disabled={!ready} style={`border:0;margin:0;padding:0;min-width:0;display:flex;flex-direction:column;gap:${variant === 'd' ? '20px' : '16px'};`}>
+        <label style={label}>Website
+          <input name="website" required inputmode="url" autocomplete="url" placeholder="yourbusiness.com" maxlength="300" style={input} />
+        </label>
+        <div style={row}>
+          <label style={label}>Business name <span style={hint}>As it appears on Google</span>
+            <input name="business_name" required autocomplete="organization" maxlength="120" style={input} />
+          </label>
+          <label style={label}>City <span style={hint}>For example, Austin, TX</span>
+            <input name="city" required autocomplete="address-level2" maxlength="120" style={input} />
+          </label>
+        </div>
+        <div style={row}>
+          <label style={label}>First name
+            <input name="first_name" required autocomplete="given-name" maxlength="120" style={input} />
+          </label>
+          <label style={label}>Email
+            <input name="email" type="email" required autocomplete="email" maxlength="254" style={input} />
+          </label>
+        </div>
+        <label style={label}>Main services <span style={hint}>Optional. If you leave this blank, we'll read them from your website.</span>
+          <input name="services" maxlength="500" placeholder="Drain cleaning, water heaters, repiping" style={input} />
+        </label>
+
+        <!-- Honeypot: hidden from people, so only bots fill it in. -->
+        <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+          <label>Fax<input name="fax" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <label style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:rgba(15,15,18,0.78);cursor:pointer;">
+          <input type="checkbox" name="marketing_consent" style="width:18px;height:18px;margin:2px 0 0;flex:0 0 auto;accent-color:var(--rz-purple);" />
+          <span>Send me occasional tips from Raiz too. Your report is sent either way. See our <a href={u('/privacy/')}>privacy notice</a>.</span>
+        </label>
+
+        <div data-turnstile></div>
+
+        <p data-form-error role="alert" hidden style="margin:0;font-size:14px;line-height:1.5;color:#B42318;"></p>
+
+        <div style={variant === 'd' ? 'display:flex;align-items:center;justify-content:space-between;gap:16px;' : 'display:flex;flex-direction:column;gap:12px;'}>
+          <span style="font-size:13px;color:rgba(15,15,18,0.55);">Free. Uses only public information. No call needed.</span>
+          <button type="submit" class="hv-30" style="height:52px;padding:0 32px;border:0;border-radius:10px;background:var(--rz-purple);color:var(--rz-foreground);font-size:15px;font-weight:500;cursor:pointer;" data-submit-label>Send My Free Report</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+  <div data-sent-panel hidden>
+    <div style={`min-height:${variant === 'd' ? '420px' : '280px'};display:flex;flex-direction:column;justify-content:center;gap:16px;`}>
+      <span style="width:14px;height:14px;border-radius:4px;background:var(--rz-gold);"></span>
+      <h2 data-sent-title style={`margin:0;font-family:var(--rz-font-display);font-weight:500;font-size:${variant === 'd' ? '32px' : '24px'};line-height:1.2;color:var(--rz-background);`}></h2>
+      <p data-sent-body style="margin:0;font-size:16px;line-height:1.6;color:rgba(15,15,18,0.70);"></p>
+      <button type="button" data-reset style="align-self:flex-start;background:none;border:0;padding:0;font-family:inherit;font-size:14px;font-weight:500;color:var(--rz-purple);cursor:pointer;margin-top:8px;min-height:44px;">Request another report →</button>
+    </div>
+  </div>
+</div>

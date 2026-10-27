@@ -1,3 +1,6 @@
+---
+const u = (p: string) => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
+---
 <footer class="bleed" style="--bleed:linear-gradient(var(--rz-background),var(--rz-background));background:var(--rz-background);padding:72px 72px 40px;">
       <div style="max-width:1320px;margin:0 auto;">
         <div style="display:flex;flex-direction:column;gap:16px;">
@@ -10,7 +13,7 @@
 
         <div style="margin-top:48px;padding-top:24px;border-top:1px solid rgba(15,15,18,0.10);display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;">
           <span style="font-size:13px;color:var(--rz-muted-foreground);">© 2026 Raiz Visibility</span>
-          <span style="font-size:13px;color:var(--rz-muted-foreground);">Amplify Your Visibility.</span>
+          <span style="display:flex;gap:24px;font-size:13px;"><a href={u("/free-visibility-report/")} class="hv-28" style="color:var(--rz-muted-foreground);">Free Report</a><a href={u("/privacy/")} class="hv-28" style="color:var(--rz-muted-foreground);">Privacy</a><span style="color:var(--rz-muted-foreground);">Amplify Your Visibility.</span></span>
         </div>
       </div>
     </footer>
