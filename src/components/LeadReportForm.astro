@@ -64,8 +64,8 @@ const row = variant === 'd' ? 'display:grid;grid-template-columns:1fr 1fr;gap:16
         </div>
 
         <label style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:rgba(15,15,18,0.78);cursor:pointer;">
-          <input type="checkbox" name="marketing_consent" style="width:18px;height:18px;margin:2px 0 0;flex:0 0 auto;accent-color:var(--rz-purple);" />
-          <span>Send me occasional tips from Raiz too. Your report is sent either way. See our <a href={u('/privacy/')}>privacy notice</a>.</span>
+          <input type="checkbox" name="marketing_consent" required style="width:18px;height:18px;margin:2px 0 0;flex:0 0 auto;accent-color:var(--rz-purple);" />
+          <span>I agree to receive my report and occasional marketing emails from Raiz. You can unsubscribe at any time. See our <a href={u('/privacy/')}>privacy notice</a>.</span>
         </label>
 
         <div data-turnstile></div>
