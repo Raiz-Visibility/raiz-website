@@ -33,6 +33,7 @@ import FreeReportMobile from '../components/design/FreeReportMobile.astro';
     invalid_first_name: 'Please shorten your first name.',
     missing_email: 'Please enter your email address.',
     invalid_email: "That email address doesn't look right. Please check it.",
+    missing_marketing_consent: 'Please tick the box to agree to receive emails from Raiz. We need it to send your free report.',
     invalid_services: 'Please shorten the services list.',
     bot_check_failed: "The security check didn't go through. Please try again.",
     rate_limited: "You've asked for several reports already. Please try again tomorrow.",
@@ -115,6 +116,11 @@ import FreeReportMobile from '../components/design/FreeReportMobile.astro';
       }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text('email'))) {
         showError(MESSAGES.invalid_email);
+        return;
+      }
+      if (data.get('marketing_consent') !== 'on') {
+        showError(MESSAGES.missing_marketing_consent);
+        form.querySelector<HTMLInputElement>('[name="marketing_consent"]')?.focus();
         return;
       }
 
